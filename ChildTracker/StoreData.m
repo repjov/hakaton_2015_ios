@@ -10,13 +10,14 @@
 
 @implementation StoreData
 
-+ (NSString *)loadToken
++ (BOOL)isHaveTokenAlready
 {
     NSString *userListFilename = [StoreData pathToFileWithStore];
     NSMutableArray *usersArray = [NSMutableArray arrayWithContentsOfFile:userListFilename];
     NSString *token = [usersArray firstObject];
+    BOOL isTokenSaved = (!([NSString isNilOrEmpty:token]));
     
-    return token;
+    return isTokenSaved;
 }
 
 + (void)saveToken:(NSString *)token
@@ -27,6 +28,15 @@
     NSArray *tokeArray = [NSArray arrayWithObject:token];
     NSString *userListFilename = [StoreData pathToFileWithStore];
     [tokeArray writeToFile:userListFilename atomically:YES];
+}
+
++ (NSString *)loadToken
+{
+    NSString *userListFilename = [StoreData pathToFileWithStore];
+    NSMutableArray *usersArray = [NSMutableArray arrayWithContentsOfFile:userListFilename];
+    NSString *token = [usersArray firstObject];
+    
+    return token;
 }
 
 + (void)deleteSavedToken

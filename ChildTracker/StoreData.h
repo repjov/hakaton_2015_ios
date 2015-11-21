@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSString+Extensions.h"
 
 @interface StoreData : NSObject
 
++ (BOOL)isHaveTokenAlready;
 + (NSString *)loadToken;
 + (void)saveToken:(NSString *)Token;
 + (void)deleteSavedToken;

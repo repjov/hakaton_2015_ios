@@ -9,6 +9,7 @@
 #import "RegisterScreen.h"
 #import "CurrentUserSession.h"
 #import "NSString+Extensions.h"
+#import "StoreData.h"
 
 @interface RegisterScreen ()
 
@@ -29,6 +30,11 @@
     [self.emailTextField addTarget:self
                   action:@selector(textFieldDidChange:)
         forControlEvents:UIControlEventEditingChanged];
+    
+    if ([StoreData isHaveTokenAlready])
+    {
+        [self goPreviewScreen];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -59,6 +65,12 @@
 {
     //[self.navigationController showViewController:<#(nonnull UIViewController *)#> sender:<#(nullable id)#>];
     [self performSegueWithIdentifier: @"segueCodeInput" sender: self];
+}
+
+- (void)goPreviewScreen
+{
+    //[self.navigationController showViewController:<#(nonnull UIViewController *)#> sender:<#(nullable id)#>];
+    [self performSegueWithIdentifier: @"appAlreadyAuthorized" sender: self];
 }
 
 - (void)textFieldDidChange:(UITextField *)textField

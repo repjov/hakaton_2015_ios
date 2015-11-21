@@ -11,12 +11,12 @@
 
 @interface CurrentUserSession : NSObject
 
+SINGLETON_DEF
+
 - (void)startSessionWithToken:(NSString *)token;
 - (void)resetSession;
 
 @property (strong, nonatomic) NSString *token;
 @property (strong, nonatomic) NSString *email;
-
-SINGLETON_DEF
 
 @end

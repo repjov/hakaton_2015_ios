@@ -145,6 +145,7 @@
                         <outlet property="emailTextField" destination="DYS-v6-A5C" id="ADN-Iw-UoP"/>
                         <outlet property="registerButton" destination="Ccq-TZ-SeP" id="S4S-na-sJp"/>
                         <segue destination="Lgz-s6-efD" kind="show" identifier="segueCodeInput" id="D1u-fa-UFk"/>
+                        <segue destination="maW-SS-Duo" kind="presentation" identifier="appAlreadyAuthorized" animates="NO" id="S53-eO-5kC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9wF-cx-d8E" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -257,7 +258,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rys-vr-dE7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2409" y="328"/>
+            <point key="canvasLocation" x="2443" y="328"/>
         </scene>
         <!--Code Input Screen-->
         <scene sceneID="9Mw-M9-QQg">
@@ -389,7 +390,7 @@
                         <outlet property="codeTextField" destination="zx2-Kx-Oze" id="1a7-5S-f7a"/>
                         <outlet property="sendAuthCOdeButton" destination="0ul-h4-0gj" id="udO-ts-C8I"/>
                         <outlet property="userEmail" destination="ddz-i4-dlY" id="F2h-lK-1WQ"/>
-                        <segue destination="maW-SS-Duo" kind="show" identifier="seguePreviewScreen" id="GeW-e7-H1J"/>
+                        <segue destination="maW-SS-Duo" kind="presentation" identifier="seguePreviewScreen" id="GeW-e7-H1J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rw3-2e-38H" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -422,4 +423,7 @@
         <image name="ChildrenTracker + Oval 2 + Rectangle 9" width="143" height="111"/>
         <image name="Group" width="99" height="127"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="S53-eO-5kC"/>
+    </inferredMetricsTieBreakers>
 </document>
