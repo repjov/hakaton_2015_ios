@@ -1,5 +1,5 @@
 //
-//  LandingScreen.h
+//  RegisterScreen.h
 //  ChildTracker
 //
 //  Created by dev on 21/11/15.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LandingScreen : UIViewController
+@interface RegisterScreen : UIViewController
 
 
 @end

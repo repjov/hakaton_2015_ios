@@ -10,5 +10,9 @@
 
 @interface NetworkManager : NSObject
 
++ (void)registerUser:(NSString *)email
+             success:(void (^)(NSString *accessToken))successBlock
+               error:(void (^)(NSString *localizedDescriptionText))errorBlock
+             cleanup:(void (^)())cleanupBlock;
 
 @end
