@@ -11,10 +11,14 @@
 #import "NSString+Extensions.h"
 #import "StoreData.h"
 
+#import "Timer.h"
+
 @interface RegisterScreen ()
 
 @property (strong, nonatomic) IBOutlet UITextField *emailTextField;
 @property (strong, nonatomic) IBOutlet UIButton *registerButton;
+
+//@property (strong, nonatomic) IBOutlet Timer *myTimer;
 
 - (IBAction)registerButtonPress:(id)sender;
 
@@ -35,6 +39,9 @@
     {
         [self goPreviewScreen];
     }
+    
+//    self.myTimer = [[Timer alloc] init];
+//    [self.myTimer start];
 }
 
 - (void)viewWillAppear:(BOOL)animated
