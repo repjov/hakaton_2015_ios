@@ -19,28 +19,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HRM-oD-1Fl" customClass="TPKeyboardAvoidingScrollView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vj8-9Y-JWi">
+                                <rect key="frame" x="10" y="10" width="10" height="10"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRM-oD-1Fl" customClass="TPKeyboardAvoidingScrollView">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChildrenTracker + Oval 2 + Rectangle 9" translatesAutoresizingMaskIntoConstraints="NO" id="iG7-kg-oWb">
-                                        <rect key="frame" x="78" y="109" width="163" height="111"/>
+                                        <rect key="frame" x="78" y="45" width="163" height="111"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="iG7-kg-oWb" secondAttribute="height" multiplier="22:15" id="eoi-e0-WTG"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Почтовый адрес для регистрации" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AhW-p6-9bf">
-                                        <rect key="frame" x="53" y="225" width="214" height="25"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Почтовый адрес для регистрации" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AhW-p6-9bf">
+                                        <rect key="frame" x="53" y="161" width="214" height="25"/>
                                         <animations/>
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="6jK-lo-b74"/>
                                             <constraint firstAttribute="width" constant="214" id="dS2-je-uo4"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ваш почтовый адрес" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DYS-v6-A5C">
+                                        <rect key="frame" x="53" y="194" width="214" height="30"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="214" id="41R-ep-H0c"/>
+                                            <constraint firstAttribute="height" constant="30" id="ELe-5V-NgO"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Zcu-sj-zYG" id="1qr-Ic-qNv"/>
+                                        </connections>
+                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ccq-TZ-SeP">
-                                        <rect key="frame" x="0.0" y="301" width="320" height="43"/>
+                                        <rect key="frame" x="0.0" y="237" width="320" height="43"/>
                                         <animations/>
                                         <color key="backgroundColor" red="1" green="0.167214376" blue="0.1471085516" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -54,41 +73,42 @@
                                             <action selector="registerButtonPress:" destination="Zcu-sj-zYG" eventType="touchUpInside" id="5SC-Tr-Tjh"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ваш почтовый адрес" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DYS-v6-A5C">
-                                        <rect key="frame" x="53" y="258" width="214" height="30"/>
-                                        <animations/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="214" id="41R-ep-H0c"/>
-                                            <constraint firstAttribute="height" constant="30" id="ELe-5V-NgO"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="Zcu-sj-zYG" id="1qr-Ic-qNv"/>
-                                        </connections>
-                                    </textField>
                                 </subviews>
                                 <animations/>
                                 <constraints>
                                     <constraint firstItem="DYS-v6-A5C" firstAttribute="top" secondItem="iG7-kg-oWb" secondAttribute="bottom" constant="38" id="0Fa-7b-xga"/>
+                                    <constraint firstItem="DYS-v6-A5C" firstAttribute="top" secondItem="AhW-p6-9bf" secondAttribute="bottom" constant="8" id="2ak-n3-NiE"/>
                                     <constraint firstItem="Ccq-TZ-SeP" firstAttribute="centerX" secondItem="HRM-oD-1Fl" secondAttribute="centerX" id="5Jp-rP-szp"/>
                                     <constraint firstItem="iG7-kg-oWb" firstAttribute="top" secondItem="HRM-oD-1Fl" secondAttribute="top" constant="109" id="Gop-CI-ek9"/>
                                     <constraint firstItem="DYS-v6-A5C" firstAttribute="top" secondItem="AhW-p6-9bf" secondAttribute="bottom" constant="8" id="NIf-pj-KtB"/>
+                                    <constraint firstItem="iG7-kg-oWb" firstAttribute="top" secondItem="HRM-oD-1Fl" secondAttribute="top" constant="45" id="PlG-ia-0xn"/>
                                     <constraint firstItem="DYS-v6-A5C" firstAttribute="top" secondItem="AhW-p6-9bf" secondAttribute="bottom" id="Si7-qV-zc5"/>
                                     <constraint firstItem="Ccq-TZ-SeP" firstAttribute="top" secondItem="DYS-v6-A5C" secondAttribute="bottom" constant="13" id="XWo-eU-va3"/>
                                     <constraint firstItem="AhW-p6-9bf" firstAttribute="centerX" secondItem="HRM-oD-1Fl" secondAttribute="centerX" id="YCJ-dK-CH5"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ccq-TZ-SeP" secondAttribute="bottom" priority="950" constant="1" id="ZrY-wi-C6c"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ccq-TZ-SeP" secondAttribute="bottom" constant="224" id="cSN-r3-Zgm"/>
                                     <constraint firstItem="DYS-v6-A5C" firstAttribute="centerX" secondItem="HRM-oD-1Fl" secondAttribute="centerX" id="gc8-UV-St2"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ccq-TZ-SeP" secondAttribute="trailing" id="h4w-WF-EVN"/>
                                     <constraint firstAttribute="bottom" secondItem="DYS-v6-A5C" secondAttribute="bottom" constant="285" id="hgf-ca-GKN"/>
                                     <constraint firstItem="DYS-v6-A5C" firstAttribute="leading" secondItem="HRM-oD-1Fl" secondAttribute="leading" priority="1" constant="53" id="j0I-Sg-qRJ"/>
+                                    <constraint firstItem="AhW-p6-9bf" firstAttribute="top" secondItem="iG7-kg-oWb" secondAttribute="bottom" constant="5" id="m10-wF-vt5"/>
                                     <constraint firstAttribute="bottom" secondItem="Ccq-TZ-SeP" secondAttribute="bottom" priority="1" constant="10" id="oQv-za-Idd"/>
                                     <constraint firstAttribute="trailing" secondItem="DYS-v6-A5C" secondAttribute="trailing" priority="1" constant="53" id="qPx-dK-wS2"/>
+                                    <constraint firstItem="Ccq-TZ-SeP" firstAttribute="leading" secondItem="HRM-oD-1Fl" secondAttribute="leading" id="qdF-7e-PrA"/>
                                     <constraint firstAttribute="bottom" secondItem="iG7-kg-oWb" secondAttribute="bottom" constant="348" id="tOZ-y2-tk4"/>
                                     <constraint firstItem="iG7-kg-oWb" firstAttribute="centerX" secondItem="HRM-oD-1Fl" secondAttribute="centerX" id="xrI-1q-wdX"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="Gop-CI-ek9"/>
+                                        <exclude reference="0Fa-7b-xga"/>
+                                        <exclude reference="NIf-pj-KtB"/>
                                         <exclude reference="Si7-qV-zc5"/>
                                         <exclude reference="hgf-ca-GKN"/>
+                                        <exclude reference="j0I-Sg-qRJ"/>
+                                        <exclude reference="qPx-dK-wS2"/>
+                                        <exclude reference="cSN-r3-Zgm"/>
+                                        <exclude reference="oQv-za-Idd"/>
                                     </mask>
                                 </variation>
                             </scrollView>
@@ -96,11 +116,20 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="HRM-oD-1Fl" firstAttribute="top" secondItem="qdW-fr-UhM" secondAttribute="bottom" id="Rdi-Cv-PqF"/>
                             <constraint firstAttribute="topMargin" secondItem="HRM-oD-1Fl" secondAttribute="top" id="VlL-la-F2L"/>
                             <constraint firstItem="HRM-oD-1Fl" firstAttribute="leading" secondItem="VB1-VT-fnp" secondAttribute="leading" id="cWk-cp-VCE"/>
+                            <constraint firstItem="HRM-oD-1Fl" firstAttribute="height" secondItem="VB1-VT-fnp" secondAttribute="height" id="jyx-A9-k7T"/>
+                            <constraint firstItem="HRM-oD-1Fl" firstAttribute="width" secondItem="VB1-VT-fnp" secondAttribute="width" id="os1-Nw-odZ"/>
                             <constraint firstAttribute="trailing" secondItem="HRM-oD-1Fl" secondAttribute="trailing" id="yRW-iz-QU7"/>
                             <constraint firstAttribute="bottomMargin" secondItem="HRM-oD-1Fl" secondAttribute="bottom" id="yZw-WK-FEa"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="VlL-la-F2L"/>
+                                <exclude reference="jyx-A9-k7T"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="cCt-cF-cyG"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
