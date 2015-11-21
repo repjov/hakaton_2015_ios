@@ -14,6 +14,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *codeTextField;
 @property (strong, nonatomic) IBOutlet UIButton *sendAuthCOdeButton;
 
+
 - (IBAction)sendAuthCOdeButtonPress:(id)sender;
 
 @end

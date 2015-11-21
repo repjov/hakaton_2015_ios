@@ -165,18 +165,48 @@
                                     <outlet property="delegate" destination="maW-SS-Duo" id="H6h-bP-xFX"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2fB-ZZ-1I9" customClass="YTPlayerView">
+                                <rect key="frame" x="0.0" y="64" width="320" height="180"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="2fB-ZZ-1I9" secondAttribute="height" multiplier="16:9" id="Wsk-e9-dvj"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJr-pU-EF0" userLabel="Close Player">
+                                <rect key="frame" x="0.0" y="538" width="320" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Close Player">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="closePlayerButtonPressed:" destination="maW-SS-Duo" eventType="touchUpInside" id="HLY-oo-bDX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="bJr-pU-EF0" secondAttribute="trailing" id="Agl-7x-iPY"/>
                             <constraint firstItem="NpU-3G-pSO" firstAttribute="top" secondItem="vWE-9B-IyO" secondAttribute="bottom" id="Mvh-hg-MF7"/>
+                            <constraint firstAttribute="trailing" secondItem="2fB-ZZ-1I9" secondAttribute="trailing" id="NVa-e5-pSY"/>
                             <constraint firstAttribute="bottomMargin" secondItem="NpU-3G-pSO" secondAttribute="bottom" id="SLk-2T-4aA"/>
+                            <constraint firstItem="bJr-pU-EF0" firstAttribute="leading" secondItem="1Yy-9Q-f7O" secondAttribute="leading" id="Tlc-s5-Ob5"/>
                             <constraint firstAttribute="trailing" secondItem="NpU-3G-pSO" secondAttribute="trailing" id="cUv-GE-Af9"/>
+                            <constraint firstItem="2fB-ZZ-1I9" firstAttribute="leading" secondItem="1Yy-9Q-f7O" secondAttribute="leading" id="f5g-hN-Y2E"/>
                             <constraint firstItem="NpU-3G-pSO" firstAttribute="leading" secondItem="1Yy-9Q-f7O" secondAttribute="leading" id="fhV-Zz-bhQ"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="bJr-pU-EF0" secondAttribute="bottom" id="g4S-an-Myx"/>
+                            <constraint firstItem="2fB-ZZ-1I9" firstAttribute="top" secondItem="vWE-9B-IyO" secondAttribute="bottom" id="mi0-cJ-H6i"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
+                    <connections>
+                        <outlet property="YTPlayerV" destination="2fB-ZZ-1I9" id="XE0-sX-ohg"/>
+                        <outlet property="closePlayerButton" destination="bJr-pU-EF0" id="Ycm-KX-Ydh"/>
+                        <outlet property="tableView" destination="NpU-3G-pSO" id="TcL-PG-Ugn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rys-vr-dE7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
