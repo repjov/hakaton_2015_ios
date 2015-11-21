@@ -100,6 +100,7 @@
     //self.currentWord = [self.SignalStimulateMatrix objectAtIndex:[indexPath row]];
     
     [self playVideWithID:@"M7lc1UVf-VE"];
+    [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:YES];
 }
 
 @end
