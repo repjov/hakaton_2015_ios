@@ -21,9 +21,23 @@
 
 @implementation RegisterScreen
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    [self.emailTextField addTarget:self
+                  action:@selector(textFieldDidChange:)
+        forControlEvents:UIControlEventEditingChanged];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.registerButton.enabled = NO;
+    self.registerButton.alpha = 0.5;
+    self.emailTextField.text = @"";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,18 +47,33 @@
 
 - (IBAction)registerButtonPress:(id)sender
 {
-    //[self goCOdeINputScreen];
-    
     NSString *userEmail = self.emailTextField.text;
     if ([NSString isNilOrEmpty:userEmail]) return;
     
     [CurrentUserSession sharedInstance].email = userEmail;
+    
+    [self goCOdeINputScreen];
 }
 
 - (void)goCOdeINputScreen
 {
     //[self.navigationController showViewController:<#(nonnull UIViewController *)#> sender:<#(nullable id)#>];
     [self performSegueWithIdentifier: @"segueCodeInput" sender: self];
+}
+
+- (void)textFieldDidChange:(UITextField *)textField
+{
+    NSString *trimmedString = ([textField.text stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]]);
+    if (trimmedString.length > 0)
+    {
+        self.registerButton.enabled = YES;
+        self.registerButton.alpha = 1;
+    }
+    else
+    {
+        self.registerButton.enabled = NO;
+        self.registerButton.alpha = 0.3;
+    }
 }
 
 @end

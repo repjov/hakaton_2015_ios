@@ -11,6 +11,11 @@
 
 @interface CodeInputScreen ()
 
+@property (strong, nonatomic) IBOutlet UITextField *codeTextField;
+@property (strong, nonatomic) IBOutlet UIButton *sendAuthCOdeButton;
+
+- (IBAction)sendAuthCOdeButtonPress:(id)sender;
+
 @end
 
 @implementation CodeInputScreen
@@ -19,6 +24,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self.codeTextField addTarget:self
+                            action:@selector(textFieldDidChange:)
+                  forControlEvents:UIControlEventEditingChanged];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -29,6 +38,10 @@
     {
         self.userEmail.text = [CurrentUserSession sharedInstance].email;
     }
+    
+    self.sendAuthCOdeButton.enabled = NO;
+    self.sendAuthCOdeButton.alpha = 0.5;
+    self.codeTextField.text = @"";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,5 +58,31 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)goPreviewsScreen
+{
+    //[self.navigationController showViewController:<#(nonnull UIViewController *)#> sender:<#(nullable id)#>];
+    [self performSegueWithIdentifier: @"seguePreviewScreen" sender: self];
+}
+
+- (IBAction)sendAuthCOdeButtonPress:(id)sender
+{
+    [self goPreviewsScreen];
+}
+
+- (void)textFieldDidChange:(UITextField *)textField
+{
+    NSString *trimmedString = ([textField.text stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]]);
+    if (trimmedString.length > 0)
+    {
+        self.sendAuthCOdeButton.enabled = YES;
+        self.sendAuthCOdeButton.alpha = 1;
+    }
+    else
+    {
+        self.sendAuthCOdeButton.enabled = NO;
+        self.sendAuthCOdeButton.alpha = 0.3;
+    }
+}
 
 @end
