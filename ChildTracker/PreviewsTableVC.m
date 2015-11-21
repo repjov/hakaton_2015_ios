@@ -52,6 +52,13 @@
     self.listDict = [[CurrentUserSession sharedInstance] playListDict];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self startAutoplay];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -65,6 +72,14 @@
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *vc = (UIViewController *)[sb instantiateViewControllerWithIdentifier:@"sleepScreenID"];
     [self.navigationController presentModalViewController:vc animated:YES];
+}
+
+- (void)startAutoplay
+{
+    NSDictionary * firstVideoDic = [self.videosArray firstObject];
+    NSString *firstVidID = firstVideoDic[@"id"];
+    
+    [self playVideWithID:firstVidID];
 }
 
 - (void)playVideWithID:(NSString *)videYTID
