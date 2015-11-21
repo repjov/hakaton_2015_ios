@@ -28,33 +28,7 @@
     [NetworkRequestSender sendToEndpoint:kRegisterEnpoint body:body success:successBlock error:errorBlock cleanup:cleanupBlock];
 }
 
-+ (void)sendCode:(NSString *)code
-             success:(void (^)(NSString *accessToken))successBlock
-               error:(void (^)(NSString *localizedDescriptionText))errorBlock
-             cleanup:(void (^)())cleanupBlock
-
-{
-    NSAssert((code != nil), kAssertMessageFormat, __PRETTY_FUNCTION__, @"email");
-    
-    if (code == nil) return;
-    
-    NSString *body;
-    body = [NSString stringWithFormat: @"{\n \"code\": \"%@\"}", code];
-    
-    [NetworkRequestSender sendToEndpoint:kActivationEnpoint body:body success:^(NSDictionary *resonseDict) {
-        NSString *token = resonseDict[@"token"];
-        if (token != nil)
-        {
-            successBlock(token);
-        }
-        else
-        {
-            errorBlock(@"Session token not found in aswer");
-        }
-    } error:errorBlock cleanup:cleanupBlock];
-}
-
-+ (void)getLists:(NSString *)token
++ (void)getListsForToken:(NSString *)token
          success:(void (^)(NSDictionary *resonseDict))successBlock
            error:(void (^)(NSString *localizedDescriptionText))errorBlock
          cleanup:(void (^)())cleanupBlock
@@ -71,6 +45,32 @@
     
     [NetworkRequestSender sendToEndpoint:endpoint body:body success:successBlock error:errorBlock cleanup:cleanupBlock];
 }
+
+//+ (void)sendCode:(NSString *)code
+//             success:(void (^)(NSString *accessToken))successBlock
+//               error:(void (^)(NSString *localizedDescriptionText))errorBlock
+//             cleanup:(void (^)())cleanupBlock
+//
+//{
+//    NSAssert((code != nil), kAssertMessageFormat, __PRETTY_FUNCTION__, @"email");
+//
+//    if (code == nil) return;
+//
+//    NSString *body;
+//    body = [NSString stringWithFormat: @"{\n \"code\": \"%@\"}", code];
+//
+//    [NetworkRequestSender sendToEndpoint:kActivationEnpoint body:body success:^(NSDictionary *resonseDict) {
+//        NSString *token = resonseDict[@"token"];
+//        if (token != nil)
+//        {
+//            successBlock(token);
+//        }
+//        else
+//        {
+//            errorBlock(@"Session token not found in aswer");
+//        }
+//    } error:errorBlock cleanup:cleanupBlock];
+//}
 
 //POST /new (email)->(token) - типа регистрации, возвращает перманентный токен с которым дальше все запросы
 //

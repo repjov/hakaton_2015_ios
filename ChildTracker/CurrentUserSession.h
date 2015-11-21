@@ -19,4 +19,7 @@ SINGLETON_DEF
 @property (strong, nonatomic) NSString *token;
 @property (strong, nonatomic) NSString *email;
 
+@property (strong, nonatomic) NSArray *playLists;
+@property (strong, nonatomic) NSArray *videos;
+
 @end

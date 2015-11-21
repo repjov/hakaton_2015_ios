@@ -14,4 +14,10 @@
              success:(void (^)(NSDictionary *resonseDict))successBlock
                error:(void (^)(NSString *localizedDescriptionText))errorBlock
              cleanup:(void (^)())cleanupBlock;
+
++ (void)getListsForToken:(NSString *)token
+         success:(void (^)(NSDictionary *resonseDict))successBlock
+           error:(void (^)(NSString *localizedDescriptionText))errorBlock
+         cleanup:(void (^)())cleanupBlock;
+
 @end

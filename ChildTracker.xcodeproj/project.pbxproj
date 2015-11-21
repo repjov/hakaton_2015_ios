@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		D75784731C008A010003F185 /* CodeInputScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = D75784721C008A010003F185 /* CodeInputScreen.m */; };
-		D75784761C008A330003F185 /* PreviewsScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = D75784751C008A330003F185 /* PreviewsScreen.m */; };
+		D75784761C008A330003F185 /* PreviewsTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D75784751C008A330003F185 /* PreviewsTableVC.m */; };
 		D78E5D531C00947400B24531 /* StoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = D78E5D521C00947400B24531 /* StoreData.m */; };
 		D78E5D561C00A86100B24531 /* PreviewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D78E5D551C00A86100B24531 /* PreviewTableViewCell.m */; };
 		D78E5D591C00B6DA00B24531 /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = D78E5D581C00B6DA00B24531 /* Timer.m */; };
+		D78E5D5C1C00CF7300B24531 /* ListsTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D78E5D5B1C00CF7300B24531 /* ListsTableVC.m */; };
 		D7DB63661C00677100381E51 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DB63651C00677100381E51 /* main.m */; };
 		D7DB63691C00677100381E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DB63681C00677100381E51 /* AppDelegate.m */; };
 		D7DB636C1C00677100381E51 /* RegisterScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DB636B1C00677100381E51 /* RegisterScreen.m */; };
@@ -34,14 +35,16 @@
 		9EC7001430ED5449A22E2659 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D75784711C008A010003F185 /* CodeInputScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeInputScreen.h; sourceTree = "<group>"; };
 		D75784721C008A010003F185 /* CodeInputScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeInputScreen.m; sourceTree = "<group>"; };
-		D75784741C008A330003F185 /* PreviewsScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewsScreen.h; sourceTree = "<group>"; };
-		D75784751C008A330003F185 /* PreviewsScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewsScreen.m; sourceTree = "<group>"; };
+		D75784741C008A330003F185 /* PreviewsTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewsTableVC.h; sourceTree = "<group>"; };
+		D75784751C008A330003F185 /* PreviewsTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewsTableVC.m; sourceTree = "<group>"; };
 		D78E5D511C00947400B24531 /* StoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreData.h; sourceTree = "<group>"; };
 		D78E5D521C00947400B24531 /* StoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreData.m; sourceTree = "<group>"; };
 		D78E5D541C00A86100B24531 /* PreviewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewTableViewCell.h; sourceTree = "<group>"; };
 		D78E5D551C00A86100B24531 /* PreviewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewTableViewCell.m; sourceTree = "<group>"; };
 		D78E5D571C00B6DA00B24531 /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
 		D78E5D581C00B6DA00B24531 /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timer.m; sourceTree = "<group>"; };
+		D78E5D5A1C00CF7300B24531 /* ListsTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListsTableVC.h; sourceTree = "<group>"; };
+		D78E5D5B1C00CF7300B24531 /* ListsTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListsTableVC.m; sourceTree = "<group>"; };
 		D7DB63611C00677100381E51 /* ChildTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChildTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7DB63651C00677100381E51 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D7DB63671C00677100381E51 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -99,6 +102,13 @@
 			name = PreviewCell;
 			sourceTree = "<group>";
 		};
+		D78E5D5D1C00D29C00B24531 /* DataObjects */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DataObjects;
+			sourceTree = "<group>";
+		};
 		D7DB63581C00677100381E51 = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +135,7 @@
 				D7DB638D1C00738700381E51 /* Third-party */,
 				D7DB637B1C006D5700381E51 /* youtube-ios-player-helper */,
 				D7DB63891C00725900381E51 /* ViewControllers */,
+				D78E5D5D1C00D29C00B24531 /* DataObjects */,
 				D7DB63941C0073BB00381E51 /* Data */,
 				D7DB636D1C00677100381E51 /* Main.storyboard */,
 				D7DB63701C00677100381E51 /* Assets.xcassets */,
@@ -182,8 +193,10 @@
 				D7DB636B1C00677100381E51 /* RegisterScreen.m */,
 				D75784711C008A010003F185 /* CodeInputScreen.h */,
 				D75784721C008A010003F185 /* CodeInputScreen.m */,
-				D75784741C008A330003F185 /* PreviewsScreen.h */,
-				D75784751C008A330003F185 /* PreviewsScreen.m */,
+				D78E5D5A1C00CF7300B24531 /* ListsTableVC.h */,
+				D78E5D5B1C00CF7300B24531 /* ListsTableVC.m */,
+				D75784741C008A330003F185 /* PreviewsTableVC.h */,
+				D75784751C008A330003F185 /* PreviewsTableVC.m */,
 				D75784771C008AE40003F185 /* PreviewCell */,
 			);
 			name = ViewControllers;
@@ -345,7 +358,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D75784761C008A330003F185 /* PreviewsScreen.m in Sources */,
+				D78E5D5C1C00CF7300B24531 /* ListsTableVC.m in Sources */,
+				D75784761C008A330003F185 /* PreviewsTableVC.m in Sources */,
 				D78E5D531C00947400B24531 /* StoreData.m in Sources */,
 				D7DB63921C00739700381E51 /* NSString+Extensions.m in Sources */,
 				D7DB63871C006D7300381E51 /* NetworkRequestSender.m in Sources */,

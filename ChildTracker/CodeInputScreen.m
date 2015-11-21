@@ -63,7 +63,7 @@
 - (void)goPreviewsScreen
 {
     //[self.navigationController showViewController:<#(nonnull UIViewController *)#> sender:<#(nullable id)#>];
-    [self performSegueWithIdentifier: @"seguePreviewScreen" sender: self];
+    [self performSegueWithIdentifier: @"segueLists" sender: self];
 }
 
 - (IBAction)sendAuthCOdeButtonPress:(id)sender

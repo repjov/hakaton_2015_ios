@@ -1,15 +1,15 @@
 //
-//  PreviewsScreen.m
+//  PreviewsTableVC.m
 //  ChildTracker
 //
 //  Created by dev on 21/11/15.
 //  Copyright © 2015 Lodossteam. All rights reserved.
 //
 
-#import "PreviewsScreen.h"
+#import "PreviewsTableVC.h"
 #import "YTPlayerView.h"
 
-@interface PreviewsScreen () <UITableViewDataSource, UITableViewDelegate>
+@interface PreviewsTableVC () <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet YTPlayerView *YTPlayerV;
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation PreviewsScreen
+@implementation PreviewsTableVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];

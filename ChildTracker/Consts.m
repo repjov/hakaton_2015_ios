@@ -18,6 +18,8 @@ BOOL const kNetworkLogging = YES;
 //BOOL const kSocketLogging = YES;
 //BOOL const kSocketDetailedLogging = YES;
 //BOOL const kUserDebbugData = YES;
+BOOL const kWorkWithBackend = NO;
+//BOOL const kCodeAuthentification = NO;
 
 #pragma mark - Server
 

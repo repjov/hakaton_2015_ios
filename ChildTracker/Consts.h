@@ -24,6 +24,7 @@
 #pragma mark - Debug Flags
 
 extern BOOL const kNetworkLogging;
+extern BOOL const kWorkWithBackend;
 
 #pragma mark - Server
 

@@ -1,5 +1,5 @@
 //
-//  PreviewsScreen.h
+//  ListsTableVC.h
 //  ChildTracker
 //
 //  Created by dev on 21/11/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PreviewsScreen : UIViewController
+@interface ListsTableVC : UIViewController
 
 @end

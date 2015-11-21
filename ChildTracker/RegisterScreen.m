@@ -10,6 +10,8 @@
 #import "CurrentUserSession.h"
 #import "NSString+Extensions.h"
 #import "StoreData.h"
+#import "NetworkManager.h"
+#import "CurrentUserSession.h"
 
 #import "Timer.h"
 
@@ -17,6 +19,7 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *emailTextField;
 @property (strong, nonatomic) IBOutlet UIButton *registerButton;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
 //@property (strong, nonatomic) IBOutlet Timer *myTimer;
 
@@ -37,7 +40,9 @@
     
     if ([StoreData isHaveTokenAlready])
     {
-        [self goPreviewScreen];
+        NSString *token = [StoreData loadToken];
+        [[CurrentUserSession sharedInstance] startSessionWithToken:token];
+        [self goListsScreen];
     }
     
 //    self.myTimer = [[Timer alloc] init];
@@ -64,17 +69,82 @@
     if ([NSString isNilOrEmpty:userEmail]) return;
     
     [CurrentUserSession sharedInstance].email = userEmail;
+    UIActivityIndicatorView *indictaor = [self disableLoginControls];
     
-    [self goCOdeINputScreen];
+    if (kWorkWithBackend)
+    {
+        __weak __typeof(self)weakSelf = self;
+        [NetworkManager registerUser:userEmail success:^(NSDictionary *resonseDict) {
+            __strong __typeof(self)strongSelf = weakSelf;
+            NSString *token = resonseDict[@"token"];
+            if (token)
+            {
+                [StoreData saveToken:token];
+                [[CurrentUserSession sharedInstance] startSessionWithToken:token];
+                //[strongSelf getLists];
+                [strongSelf goListsScreen];
+            }
+            else
+            {
+                NSLog(@" ### Error Token Parse");
+            }
+        } error:^(NSString *localizedDescriptionText) {
+            NSLog(@" ### Error on Registration: <%@>", localizedDescriptionText);
+        } cleanup:^{
+            __strong __typeof(self)strongSelf = weakSelf;
+            [strongSelf enableLoginControls:indictaor];
+        }];
+    }
+    else
+    {
+        //[self goCOdeINputScreen];
+        [self goListsScreen];
+    }
 }
 
-- (void)goCOdeINputScreen
+//- (void)goCOdeINputScreen
+//{
+//    //[self.navigationController showViewController:<#(nonnull UIViewController *)#> sender:<#(nullable id)#>];
+//    [self performSegueWithIdentifier: @"segueCodeInput" sender: self];
+//}
+
+- (void)disableButton
 {
-    //[self.navigationController showViewController:<#(nonnull UIViewController *)#> sender:<#(nullable id)#>];
-    [self performSegueWithIdentifier: @"segueCodeInput" sender: self];
+    self.registerButton.enabled = NO;
+    self.registerButton.alpha = 0.3;
 }
 
-- (void)goPreviewScreen
+- (void)enableButton
+{
+    self.registerButton.enabled = YES;
+    self.registerButton.alpha = 1;
+    
+}
+
+- (UIActivityIndicatorView *)disableLoginControls
+{
+    [self disableButton];
+    
+    CGRect defFrame = CGRectMake(0, 0, 50, 50);
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithFrame:defFrame];
+    indicator.center = CGPointMake((self.registerButton.center.x / 2), self.registerButton.center.y);
+    indicator.hidesWhenStopped = YES;
+    indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+    [self.scrollView addSubview:indicator];
+    [indicator startAnimating];
+    
+    return indicator;
+}
+
+- (void)enableLoginControls:(UIActivityIndicatorView *)indicator
+{
+    [self enableButton];
+    
+    [indicator stopAnimating];
+    [indicator removeFromSuperview];
+}
+
+- (void)goListsScreen
 {
     //[self.navigationController showViewController:<#(nonnull UIViewController *)#> sender:<#(nullable id)#>];
     [self performSegueWithIdentifier: @"appAlreadyAuthorized" sender: self];
@@ -85,13 +155,11 @@
     NSString *trimmedString = ([textField.text stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]]);
     if (trimmedString.length > 0)
     {
-        self.registerButton.enabled = YES;
-        self.registerButton.alpha = 1;
+        [self enableButton];
     }
     else
     {
-        self.registerButton.enabled = NO;
-        self.registerButton.alpha = 0.3;
+        [self disableButton];
     }
 }
 
