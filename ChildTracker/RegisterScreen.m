@@ -53,9 +53,9 @@
 {
     [super viewWillAppear:animated];
     
-    self.registerButton.enabled = NO;
-    self.registerButton.alpha = 0.5;
-    self.emailTextField.text = @"";
+    [self disableButton];
+    
+    [self.emailTextField becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -42,6 +42,8 @@
     
     [self disableButton];
     self.codeTextField.text = @"";
+    
+    [self.codeTextField becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
