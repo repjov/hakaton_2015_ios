@@ -46,6 +46,25 @@
     [NetworkRequestSender sendToEndpoint:endpoint body:body success:successBlock error:errorBlock cleanup:cleanupBlock];
 }
 
++ (void)getVideosForToken:(NSString *)token
+                  listID:(NSString *)listID
+                 success:(void (^)(NSData *data))successBlock
+                   error:(void (^)(NSString *localizedDescriptionText))errorBlock
+                 cleanup:(void (^)())cleanupBlock
+
+{
+    NSAssert((listID != nil), kAssertMessageFormat, __PRETTY_FUNCTION__, @"email");
+    
+    if (listID == nil) return;
+    
+    NSString *body;
+    body = [NSString stringWithFormat: @"{}"];
+    
+    NSString *endpoint = [NSString stringWithFormat:@"/%@/lists/%@", token, listID];
+    
+    [NetworkRequestSender sendToEndpoint:endpoint body:body success:successBlock error:errorBlock cleanup:cleanupBlock];
+}
+
 //+ (void)sendCode:(NSString *)code
 //             success:(void (^)(NSString *accessToken))successBlock
 //               error:(void (^)(NSString *localizedDescriptionText))errorBlock

@@ -9,10 +9,13 @@
 #import "ListsTableVC.h"
 #import "NetworkManager.h"
 #import "CurrentUserSession.h"
+#import "PreviewTableViewCell.h"
 
 @interface ListsTableVC () <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray *playListsLoc;
+
 
 @end
 
@@ -39,7 +42,7 @@
 - (void)getLists
 {
     NSString *token = [[CurrentUserSession sharedInstance] token];
-    if (token == nil) NSLog(@" ### !!! TORKEN NULL !!!");
+    if (token == nil) NSLog(@" ### !!! TOKEN NULL !!!");
     
     if (kWorkWithBackend)
     {
@@ -48,9 +51,8 @@
             __strong __typeof(self)strongSelf = weakSelf;
             
             NSError *parseError = nil;
-            NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
-            [strongSelf saveLists:responseDictionary];
-            
+            NSArray *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
+            [CurrentUserSession sharedInstance].playLists = responseDictionary;
             [strongSelf.tableView reloadData];
             
         } error:^(NSString *localizedDescriptionText) {} cleanup:^{}];
@@ -68,18 +70,25 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    self.playListsLoc = [CurrentUserSession sharedInstance].playLists;
+    return [self.playListsLoc count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifier = @"previewCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    PreviewTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell = [[PreviewTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
+    
+    NSDictionary *listDict = [self.playListsLoc objectAtIndex:indexPath.row];
+
+    //cell.videosArray = listDict[videosArray];
+    
     //NSString *value = [self.SignalStimulateMatrix objectAtIndex:[indexPath row]];
     //[cell.textLabel setText:value];
+    
     return cell;
 }
 
@@ -88,8 +97,12 @@
     //self.currentWord = [self.SignalStimulateMatrix objectAtIndex:[indexPath row]];
     
     [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:YES];
+
+    NSDictionary *listDict = [self.playListsLoc objectAtIndex:indexPath.row];
+    [CurrentUserSession sharedInstance].playListDict = listDict;
+    //[CurrentUserSession sharedInstance].videosArray = listDict[videosArray];
     
-    
+    [self performSegueWithIdentifier: @"segueVideosInListPreview" sender: self];
 }
 
 @end

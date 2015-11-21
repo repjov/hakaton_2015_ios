@@ -566,7 +566,7 @@
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="tableView" destination="hfy-gF-Bq3" id="zi2-y7-glW"/>
-                        <segue destination="maW-SS-Duo" kind="show" identifier="segueVideosPreview" id="1eq-ih-apG"/>
+                        <segue destination="maW-SS-Duo" kind="show" identifier="segueVideosInListPreview" id="1eq-ih-apG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eEI-Oz-kM3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -601,6 +601,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2Fk-hM-ldK"/>
-        <segue reference="Mwp-xI-gVK"/>
+        <segue reference="1eq-ih-apG"/>
     </inferredMetricsTieBreakers>
 </document>

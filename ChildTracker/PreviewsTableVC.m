@@ -8,12 +8,18 @@
 
 #import "PreviewsTableVC.h"
 #import "YTPlayerView.h"
+#import "CurrentUserSession.h"
+#import "PreviewTableViewCell.h"
+#import "NetworkManager.h"
 
 @interface PreviewsTableVC () <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet YTPlayerView *YTPlayerV;
 @property (strong, nonatomic) IBOutlet UIButton *closePlayerButton;
+
+@property (strong, nonatomic) NSDictionary *listDict;
+@property (strong, nonatomic) NSArray *videosArray;
 
 - (IBAction)closePlayerButtonPressed:(id)sender;
 
@@ -25,11 +31,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [self getVideos];
     self.YTPlayerV.backgroundColor = [UIColor clearColor];
     
     [self hideVideoControls];
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.videosArray = [[CurrentUserSession sharedInstance] videosArray];
+    self.listDict = [[CurrentUserSession sharedInstance] playListDict];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,6 +72,30 @@
     [self showVideoControls];
 }
 
+- (void)getVideos
+{
+    NSString *token = [[CurrentUserSession sharedInstance] token];
+    if (token == nil) NSLog(@" ### !!! TORKEN NULL !!!");
+    
+    NSString *listID = self.listDict[@"id"];
+    
+    if (kWorkWithBackend)
+    {
+        __weak __typeof(self)weakSelf = self;
+        
+        [NetworkManager getVideosForToken:token listID:listID success:^(NSData *data)
+        {
+            __strong __typeof(self)strongSelf = weakSelf;
+                
+            NSError *parseError = nil;
+            NSArray *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
+            [CurrentUserSession sharedInstance].videosArray = responseDictionary;
+            [strongSelf.tableView reloadData];
+            
+        } error:^(NSString *localizedDescriptionText) {} cleanup:^{}];
+    }
+}
+
 - (IBAction)closePlayerButtonPressed:(id)sender
 {
     [self.YTPlayerV stopVideo];
@@ -80,18 +119,25 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     //return [self.SignalStimulateMatrix count];
-    return 1;
+    self.videosArray = [[CurrentUserSession sharedInstance] videosArray];
+    
+    return [self.videosArray count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifier = @"previewCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    PreviewTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    if (cell == nil)
+    {
+        cell = [[PreviewTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
+    
+    NSDictionary *videoDict = [self.videosArray objectAtIndex:indexPath.row];
+    
     //NSString *value = [self.SignalStimulateMatrix objectAtIndex:[indexPath row]];
     //[cell.textLabel setText:value];
+    
     return cell;
 }
 
@@ -99,7 +145,21 @@
 {
     //self.currentWord = [self.SignalStimulateMatrix objectAtIndex:[indexPath row]];
     
-    [self playVideWithID:@"M7lc1UVf-VE"];
+    NSDictionary *videoDict = [self.videosArray objectAtIndex:indexPath.row];
+    
+    if (kWorkWithBackend)
+    {
+        NSString *videoID = videoDict[@"id"];
+        if (videoID != nil)
+        {
+            [self playVideWithID:videoID];
+        }
+    }
+    else
+    {
+        [self playVideWithID:@"M7lc1UVf-VE"];
+    }
+    
     [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:YES];
 }
 

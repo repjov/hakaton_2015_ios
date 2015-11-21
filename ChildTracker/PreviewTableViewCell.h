@@ -10,4 +10,7 @@
 
 @interface PreviewTableViewCell : UITableViewCell
 
+@property (strong, nonatomic) NSDictionary *listDict;
+@property (strong, nonatomic) NSDictionary *videoDict;
+
 @end

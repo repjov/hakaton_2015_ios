@@ -20,4 +20,10 @@
            error:(void (^)(NSString *localizedDescriptionText))errorBlock
          cleanup:(void (^)())cleanupBlock;
 
++ (void)getVideosForToken:(NSString *)token
+                   listID:(NSString *)listID
+                  success:(void (^)(NSData *data))successBlock
+                    error:(void (^)(NSString *localizedDescriptionText))errorBlock
+                  cleanup:(void (^)())cleanupBlock;
+
 @end
