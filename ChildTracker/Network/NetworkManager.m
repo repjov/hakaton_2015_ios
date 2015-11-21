@@ -12,7 +12,7 @@
 
 @implementation NetworkManager
 
-+ (void)registerUser:(UserToRegister *)user
++ (void)registerUser:(NSString *)user
              success:(void (^)(NSString *accessToken))successBlock
                error:(void (^)(NSString *localizedDescriptionText))errorBlock
              cleanup:(void (^)())cleanupBlock
@@ -23,7 +23,7 @@
     if (user == nil) return;
     
     NSString *body;
-    body = [NSString stringWithFormat: @"{\n \"first_name\": \"%@\",\n  \"last_name\": \"%@\",\n  \"full_name\": \"%@\",\n  \"email\": \"%@\",\n  \"password\": \"%@\",\n  \"birth\": \"%@\",\n  \"gender\": \"%@\"}", user.first_name, user.last_name, user.full_name, user.email, user.password, user.birth, user.gender];
+//    body = [NSString stringWithFormat: @"{\n \"first_name\": \"%@\",\n  \"last_name\": \"%@\",\n  \"full_name\": \"%@\",\n  \"email\": \"%@\",\n  \"password\": \"%@\",\n  \"birth\": \"%@\",\n  \"gender\": \"%@\"}", user.first_name, user.last_name, user.full_name, user.email, user.password, user.birth, user.gender];
     
     [NetworkRequestSender sendToEndpoint:kSignUpEnpoint body:body success:^(NSDictionary *resonseDict) {
         NSString *token = resonseDict[@"accessToken"];
@@ -39,7 +39,7 @@
     } error:errorBlock cleanup:cleanupBlock];
 }
 
-+ (void)registerViaFacebookUser:(UserToRegister *)user
++ (void)registerViaFacebookUser:(NSString *)user
                       FacebokID:(NSString *)facebookID
                         success:(void (^)(NSString *accessToken))successBlock
                           error:(void (^)(NSString *localizedDescriptionText))errorBlock
@@ -52,7 +52,7 @@
     if (facebookID == nil) return;
     
     NSString *body;
-    body = [NSString stringWithFormat: @"{\n \"first_name\": \"%@\",\n  \"last_name\": \"%@\",\n  \"full_name\": \"%@\",\n  \"email\": \"%@\",\n  \"password\": \"%@\",\n  \"birth\": \"%@\",\n  \"gender\": \"%@\",\n  \"facebook_id\": \"%@\"}", user.first_name, user.last_name, user.full_name, user.email, user.password, user.birth, user.gender, facebookID];
+//    body = [NSString stringWithFormat: @"{\n \"first_name\": \"%@\",\n  \"last_name\": \"%@\",\n  \"full_name\": \"%@\",\n  \"email\": \"%@\",\n  \"password\": \"%@\",\n  \"birth\": \"%@\",\n  \"gender\": \"%@\",\n  \"facebook_id\": \"%@\"}", user.first_name, user.last_name, user.full_name, user.email, user.password, user.birth, user.gender, facebookID];
     
     [NetworkRequestSender sendToEndpoint:kSignUpEnpoint body:body success:^(NSDictionary *resonseDict) {
         NSString *token = resonseDict[@"accessToken"];

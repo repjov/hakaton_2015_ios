@@ -1,18 +1,18 @@
 //
-//  ViewController.m
+//  LandingScreen.m
 //  ChildTracker
 //
 //  Created by dev on 21/11/15.
 //  Copyright © 2015 Lodossteam. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "LandingScreen.h"
 
-@interface ViewController ()
+@interface LandingScreen ()
 
 @end
 
-@implementation ViewController
+@implementation LandingScreen
 
 - (void)viewDidLoad {
     [super viewDidLoad];
