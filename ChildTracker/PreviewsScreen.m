@@ -8,9 +8,7 @@
 
 #import "PreviewsScreen.h"
 
-@interface PreviewsScreen () <UICollectionViewDataSource, UICollectionViewDelegate>
-
-@property (strong, nonatomic) IBOutlet UICollectionView *collectionVIew;
+@interface PreviewsScreen () <UITableViewDataSource, UITableViewDelegate>
 
 @end
 
@@ -26,22 +24,29 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - CollectionView
+#pragma UITableView - delegate methods
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView*)collectionView
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // _data is a class member variable that contains one array per section.
+    //return [self.SignalStimulateMatrix count];
     return 1;
 }
 
-- (NSInteger)collectionView:(UICollectionView*)collectionView numberOfItemsInSection:(NSInteger)section
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 1;
+    static NSString *cellIdentifier = @"previewCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    //NSString *value = [self.SignalStimulateMatrix objectAtIndex:[indexPath row]];
+    //[cell.textLabel setText:value];
+    return cell;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    //self.currentWord = [self.SignalStimulateMatrix objectAtIndex:[indexPath row]];
 }
 
 @end

@@ -1,5 +1,5 @@
 //
-//  PreviewCell.h
+//  PreviewTableViewCell.h
 //  ChildTracker
 //
 //  Created by dev on 21/11/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PreviewCell : UICollectionViewCell
-
-@property (strong, nonatomic) IBOutlet UIImageView *videoPreviewImage;
+@interface PreviewTableViewCell : UITableViewCell
 
 @end

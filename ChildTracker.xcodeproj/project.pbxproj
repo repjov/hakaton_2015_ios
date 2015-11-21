@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		D75784731C008A010003F185 /* CodeInputScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = D75784721C008A010003F185 /* CodeInputScreen.m */; };
 		D75784761C008A330003F185 /* PreviewsScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = D75784751C008A330003F185 /* PreviewsScreen.m */; };
-		D757847A1C008B030003F185 /* PreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D75784791C008B030003F185 /* PreviewCell.m */; };
 		D78E5D531C00947400B24531 /* StoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = D78E5D521C00947400B24531 /* StoreData.m */; };
+		D78E5D561C00A86100B24531 /* PreviewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D78E5D551C00A86100B24531 /* PreviewTableViewCell.m */; };
 		D7DB63661C00677100381E51 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DB63651C00677100381E51 /* main.m */; };
 		D7DB63691C00677100381E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DB63681C00677100381E51 /* AppDelegate.m */; };
 		D7DB636C1C00677100381E51 /* RegisterScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DB636B1C00677100381E51 /* RegisterScreen.m */; };
@@ -35,10 +35,10 @@
 		D75784721C008A010003F185 /* CodeInputScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeInputScreen.m; sourceTree = "<group>"; };
 		D75784741C008A330003F185 /* PreviewsScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewsScreen.h; sourceTree = "<group>"; };
 		D75784751C008A330003F185 /* PreviewsScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewsScreen.m; sourceTree = "<group>"; };
-		D75784781C008B030003F185 /* PreviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewCell.h; sourceTree = "<group>"; };
-		D75784791C008B030003F185 /* PreviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewCell.m; sourceTree = "<group>"; };
 		D78E5D511C00947400B24531 /* StoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreData.h; sourceTree = "<group>"; };
 		D78E5D521C00947400B24531 /* StoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreData.m; sourceTree = "<group>"; };
+		D78E5D541C00A86100B24531 /* PreviewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewTableViewCell.h; sourceTree = "<group>"; };
+		D78E5D551C00A86100B24531 /* PreviewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewTableViewCell.m; sourceTree = "<group>"; };
 		D7DB63611C00677100381E51 /* ChildTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChildTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7DB63651C00677100381E51 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D7DB63671C00677100381E51 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -90,8 +90,8 @@
 		D75784771C008AE40003F185 /* PreviewCell */ = {
 			isa = PBXGroup;
 			children = (
-				D75784781C008B030003F185 /* PreviewCell.h */,
-				D75784791C008B030003F185 /* PreviewCell.m */,
+				D78E5D541C00A86100B24531 /* PreviewTableViewCell.h */,
+				D78E5D551C00A86100B24531 /* PreviewTableViewCell.m */,
 			);
 			name = PreviewCell;
 			sourceTree = "<group>";
@@ -350,8 +350,8 @@
 				D7DB638C1C00730600381E51 /* Consts.m in Sources */,
 				D7DB63971C0073C600381E51 /* CurrentUserSession.m in Sources */,
 				D7DB63691C00677100381E51 /* AppDelegate.m in Sources */,
+				D78E5D561C00A86100B24531 /* PreviewTableViewCell.m in Sources */,
 				D7DB63661C00677100381E51 /* main.m in Sources */,
-				D757847A1C008B030003F185 /* PreviewCell.m in Sources */,
 				D7DB63931C00739700381E51 /* NSString+Tools.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
