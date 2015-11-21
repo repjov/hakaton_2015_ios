@@ -11,8 +11,7 @@
 @interface NetworkManager : NSObject
 
 + (void)registerUser:(NSString *)email
-             success:(void (^)(NSString *accessToken))successBlock
+             success:(void (^)(NSDictionary *resonseDict))successBlock
                error:(void (^)(NSString *localizedDescriptionText))errorBlock
              cleanup:(void (^)())cleanupBlock;
-
 @end

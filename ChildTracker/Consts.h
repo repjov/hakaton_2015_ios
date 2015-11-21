@@ -31,17 +31,11 @@ extern NSString *const kServerURL;
 
 #pragma mark - Server Endpoints
 
-extern NSString *const kSignUpEnpoint;
-extern NSString *const kSignInEnpoint;
-extern NSString *const kSignAuthFacebookEnpoint;
-extern NSString *const kLogOutInEnpoint;
-
-extern NSString *const kFeedEnpoint;
-
-extern NSString *const kFollowsEnpoint;
-extern NSString *const kRequestFollowEnpoint;
-
-extern NSString *const kUserByIDEnpoint;
+extern NSString *const kRegisterEnpoint;
+extern NSString *const kAllListsEnpoint;
+extern NSString *const kAllVideoInListEnpoint;
+extern NSString *const kTrackingEnpoint;
+extern NSString *const kControlEnpoint;
 
 #pragma mark - Sockets
 

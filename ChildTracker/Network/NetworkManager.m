@@ -13,7 +13,7 @@
 @implementation NetworkManager
 
 + (void)registerUser:(NSString *)email
-             success:(void (^)(NSString *accessToken))successBlock
+             success:(void (^)(NSDictionary *resonseDict))successBlock
                error:(void (^)(NSString *localizedDescriptionText))errorBlock
              cleanup:(void (^)())cleanupBlock
 
@@ -25,7 +25,23 @@
     NSString *body;
     body = [NSString stringWithFormat: @"{\n \"email\": \"%@\"}", email];
     
-    [NetworkRequestSender sendToEndpoint:kSignUpEnpoint body:body success:^(NSDictionary *resonseDict) {
+    [NetworkRequestSender sendToEndpoint:kRegisterEnpoint body:body success:successBlock error:errorBlock cleanup:cleanupBlock];
+}
+
++ (void)sendCode:(NSString *)code
+             success:(void (^)(NSString *accessToken))successBlock
+               error:(void (^)(NSString *localizedDescriptionText))errorBlock
+             cleanup:(void (^)())cleanupBlock
+
+{
+    NSAssert((code != nil), kAssertMessageFormat, __PRETTY_FUNCTION__, @"email");
+    
+    if (code == nil) return;
+    
+    NSString *body;
+    body = [NSString stringWithFormat: @"{\n \"code\": \"%@\"}", code];
+    
+    [NetworkRequestSender sendToEndpoint:kRegisterEnpoint body:body success:^(NSDictionary *resonseDict) {
         NSString *token = resonseDict[@"token"];
         if (token != nil)
         {
