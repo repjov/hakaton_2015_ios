@@ -40,8 +40,7 @@
         self.userEmail.text = [CurrentUserSession sharedInstance].email;
     }
     
-    self.sendAuthCOdeButton.enabled = NO;
-    self.sendAuthCOdeButton.alpha = 0.5;
+    [self disableButton];
     self.codeTextField.text = @"";
 }
 
@@ -60,6 +59,20 @@
 }
 */
 
+- (void)disableButton
+{
+    self.sendAuthCOdeButton.enabled = NO;
+    self.sendAuthCOdeButton.backgroundColor = [UIColor grayColor];
+    self.sendAuthCOdeButton.alpha = 0.3;
+}
+
+- (void)enableButton
+{
+    self.sendAuthCOdeButton.enabled = YES;
+    self.sendAuthCOdeButton.backgroundColor = [UIColor redColor];
+    self.sendAuthCOdeButton.alpha = 1;
+}
+
 - (void)goPreviewsScreen
 {
     //[self.navigationController showViewController:<#(nonnull UIViewController *)#> sender:<#(nullable id)#>];
@@ -76,13 +89,11 @@
     NSString *trimmedString = ([textField.text stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]]);
     if (trimmedString.length > 0)
     {
-        self.sendAuthCOdeButton.enabled = YES;
-        self.sendAuthCOdeButton.alpha = 1;
+        [self disableButton];
     }
     else
     {
-        self.sendAuthCOdeButton.enabled = NO;
-        self.sendAuthCOdeButton.alpha = 0.3;
+        [self enableButton];
     }
 }
 

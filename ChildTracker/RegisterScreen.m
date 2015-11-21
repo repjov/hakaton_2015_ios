@@ -111,14 +111,15 @@
 - (void)disableButton
 {
     self.registerButton.enabled = NO;
+    self.registerButton.backgroundColor = [UIColor grayColor];
     self.registerButton.alpha = 0.3;
 }
 
 - (void)enableButton
 {
     self.registerButton.enabled = YES;
+    self.registerButton.backgroundColor = [UIColor redColor];
     self.registerButton.alpha = 1;
-    
 }
 
 - (UIActivityIndicatorView *)disableLoginControls

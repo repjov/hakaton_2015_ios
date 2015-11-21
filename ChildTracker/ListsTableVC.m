@@ -41,13 +41,16 @@
     NSString *token = [[CurrentUserSession sharedInstance] token];
     if (token == nil) NSLog(@" ### !!! TORKEN NULL !!!");
     
-    __weak __typeof(self)weakSelf = self;
-    [NetworkManager getListsForToken:token success:^(NSDictionary *resonseDict) {
-        __strong __typeof(self)strongSelf = weakSelf;
-        [strongSelf saveLists:resonseDict];
-        [strongSelf.tableView reloadData];
-        
-    } error:^(NSString *localizedDescriptionText) {} cleanup:^{}];
+    if (kWorkWithBackend)
+    {
+        __weak __typeof(self)weakSelf = self;
+        [NetworkManager getListsForToken:token success:^(NSDictionary *resonseDict) {
+            __strong __typeof(self)strongSelf = weakSelf;
+            [strongSelf saveLists:resonseDict];
+            [strongSelf.tableView reloadData];
+            
+        } error:^(NSString *localizedDescriptionText) {} cleanup:^{}];
+    }
 }
 
 - (void)saveLists:(NSDictionary *)resonseDict
