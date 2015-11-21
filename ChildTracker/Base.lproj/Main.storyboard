@@ -1,45 +1,94 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Zcu-sj-zYG">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Landing Screen-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="B3M-ys-yvo">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LandingScreen" sceneMemberID="viewController">
+                <viewController id="Zcu-sj-zYG" customClass="LandingScreen" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="qdW-fr-UhM"/>
+                        <viewControllerLayoutGuide type="bottom" id="KnV-4c-uye"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <view key="view" contentMode="scaleToFill" id="VB1-VT-fnp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChildrenTracker + Oval 2 + Rectangle 9" translatesAutoresizingMaskIntoConstraints="NO" id="BsT-3d-nSw">
-                                <rect key="frame" x="218" y="244" width="164" height="112"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HRM-oD-1Fl">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChildrenTracker + Oval 2 + Rectangle 9" translatesAutoresizingMaskIntoConstraints="NO" id="iG7-kg-oWb">
+                                        <rect key="frame" x="78" y="109" width="163" height="111"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="iG7-kg-oWb" secondAttribute="height" multiplier="22:15" id="eoi-e0-WTG"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DYS-v6-A5C">
+                                        <rect key="frame" x="53" y="253" width="214" height="30"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="214" id="41R-ep-H0c"/>
+                                            <constraint firstAttribute="height" constant="30" id="ELe-5V-NgO"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Почтовый адрес для регистрации" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AhW-p6-9bf">
+                                        <rect key="frame" x="53" y="225" width="214" height="25"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="214" id="dS2-je-uo4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="BsT-3d-nSw" secondAttribute="height" multiplier="22:15" id="Awk-vR-SuA"/>
+                                    <constraint firstItem="DYS-v6-A5C" firstAttribute="top" secondItem="iG7-kg-oWb" secondAttribute="bottom" constant="33" id="0Fa-7b-xga"/>
+                                    <constraint firstItem="iG7-kg-oWb" firstAttribute="top" secondItem="HRM-oD-1Fl" secondAttribute="top" constant="109" id="Gop-CI-ek9"/>
+                                    <constraint firstItem="DYS-v6-A5C" firstAttribute="top" secondItem="AhW-p6-9bf" secondAttribute="bottom" constant="3" id="NIf-pj-KtB"/>
+                                    <constraint firstItem="DYS-v6-A5C" firstAttribute="top" secondItem="AhW-p6-9bf" secondAttribute="bottom" id="Si7-qV-zc5"/>
+                                    <constraint firstItem="AhW-p6-9bf" firstAttribute="centerX" secondItem="HRM-oD-1Fl" secondAttribute="centerX" id="YCJ-dK-CH5"/>
+                                    <constraint firstItem="DYS-v6-A5C" firstAttribute="centerX" secondItem="HRM-oD-1Fl" secondAttribute="centerX" id="gc8-UV-St2"/>
+                                    <constraint firstAttribute="bottom" secondItem="DYS-v6-A5C" secondAttribute="bottom" constant="285" id="hgf-ca-GKN"/>
+                                    <constraint firstItem="DYS-v6-A5C" firstAttribute="leading" secondItem="HRM-oD-1Fl" secondAttribute="leading" priority="1" constant="53" id="j0I-Sg-qRJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="DYS-v6-A5C" secondAttribute="trailing" priority="1" constant="53" id="qPx-dK-wS2"/>
+                                    <constraint firstAttribute="bottom" secondItem="iG7-kg-oWb" secondAttribute="bottom" constant="348" id="tOZ-y2-tk4"/>
+                                    <constraint firstItem="iG7-kg-oWb" firstAttribute="centerX" secondItem="HRM-oD-1Fl" secondAttribute="centerX" id="xrI-1q-wdX"/>
                                 </constraints>
-                            </imageView>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Si7-qV-zc5"/>
+                                    </mask>
+                                </variation>
+                            </scrollView>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="BsT-3d-nSw" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="3VW-y1-bB7"/>
-                            <constraint firstItem="BsT-3d-nSw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NO3-H5-hG1"/>
-                            <constraint firstItem="BsT-3d-nSw" firstAttribute="width" secondItem="BsT-3d-nSw" secondAttribute="height" multiplier="22:15" id="pFn-FT-Qhq"/>
+                            <constraint firstAttribute="topMargin" secondItem="HRM-oD-1Fl" secondAttribute="top" id="VlL-la-F2L"/>
+                            <constraint firstItem="HRM-oD-1Fl" firstAttribute="leading" secondItem="VB1-VT-fnp" secondAttribute="leading" id="cWk-cp-VCE"/>
+                            <constraint firstAttribute="trailing" secondItem="HRM-oD-1Fl" secondAttribute="trailing" id="yRW-iz-QU7"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="HRM-oD-1Fl" secondAttribute="bottom" id="yZw-WK-FEa"/>
                         </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9wF-cx-d8E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="681" y="328"/>
         </scene>
     </scenes>
     <resources>
-        <image name="ChildrenTracker + Oval 2 + Rectangle 9" width="162" height="112"/>
+        <image name="ChildrenTracker + Oval 2 + Rectangle 9" width="143" height="111"/>
     </resources>
 </document>
