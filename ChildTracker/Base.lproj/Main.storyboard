@@ -35,7 +35,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Почтовый адрес для регистрации" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AhW-p6-9bf">
-                                        <rect key="frame" x="53" y="161" width="214" height="25"/>
+                                        <rect key="frame" x="53" y="163" width="214" height="25"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="6jK-lo-b74"/>
@@ -83,7 +83,7 @@
                                 <animations/>
                                 <constraints>
                                     <constraint firstItem="DYS-v6-A5C" firstAttribute="top" secondItem="iG7-kg-oWb" secondAttribute="bottom" constant="38" id="0Fa-7b-xga"/>
-                                    <constraint firstItem="DYS-v6-A5C" firstAttribute="top" secondItem="AhW-p6-9bf" secondAttribute="bottom" constant="8" id="2ak-n3-NiE"/>
+                                    <constraint firstItem="DYS-v6-A5C" firstAttribute="top" secondItem="AhW-p6-9bf" secondAttribute="bottom" constant="6" id="2ak-n3-NiE"/>
                                     <constraint firstItem="Ccq-TZ-SeP" firstAttribute="centerX" secondItem="HRM-oD-1Fl" secondAttribute="centerX" id="5Jp-rP-szp"/>
                                     <constraint firstItem="iG7-kg-oWb" firstAttribute="top" secondItem="HRM-oD-1Fl" secondAttribute="top" constant="109" id="Gop-CI-ek9"/>
                                     <constraint firstItem="DYS-v6-A5C" firstAttribute="top" secondItem="AhW-p6-9bf" secondAttribute="bottom" constant="8" id="NIf-pj-KtB"/>
@@ -97,7 +97,7 @@
                                     <constraint firstAttribute="trailing" secondItem="Ccq-TZ-SeP" secondAttribute="trailing" priority="1" id="h4w-WF-EVN"/>
                                     <constraint firstAttribute="bottom" secondItem="DYS-v6-A5C" secondAttribute="bottom" constant="285" id="hgf-ca-GKN"/>
                                     <constraint firstItem="DYS-v6-A5C" firstAttribute="leading" secondItem="HRM-oD-1Fl" secondAttribute="leading" priority="1" constant="53" id="j0I-Sg-qRJ"/>
-                                    <constraint firstItem="AhW-p6-9bf" firstAttribute="top" secondItem="iG7-kg-oWb" secondAttribute="bottom" constant="5" id="m10-wF-vt5"/>
+                                    <constraint firstItem="AhW-p6-9bf" firstAttribute="top" secondItem="iG7-kg-oWb" secondAttribute="bottom" constant="7" id="m10-wF-vt5"/>
                                     <constraint firstAttribute="bottom" secondItem="Ccq-TZ-SeP" secondAttribute="bottom" priority="1" constant="10" id="oQv-za-Idd"/>
                                     <constraint firstAttribute="trailing" secondItem="DYS-v6-A5C" secondAttribute="trailing" priority="1" constant="53" id="qPx-dK-wS2"/>
                                     <constraint firstItem="Ccq-TZ-SeP" firstAttribute="leading" secondItem="HRM-oD-1Fl" secondAttribute="leading" priority="1" id="qdF-7e-PrA"/>
@@ -213,6 +213,9 @@
                                 <rect key="frame" x="0.0" y="538" width="320" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Zx8-6v-SxT"/>
+                                </constraints>
                                 <state key="normal" title="Close Player">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -224,17 +227,25 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ce0-e3-tWU" firstAttribute="top" relation="greaterThanOrEqual" secondItem="2fB-ZZ-1I9" secondAttribute="bottom" id="7EX-0N-7dl"/>
+                            <constraint firstItem="2fB-ZZ-1I9" firstAttribute="centerX" secondItem="1Yy-9Q-f7O" secondAttribute="centerX" id="8xf-3Q-Tko"/>
                             <constraint firstAttribute="trailing" secondItem="bJr-pU-EF0" secondAttribute="trailing" id="Agl-7x-iPY"/>
                             <constraint firstItem="NpU-3G-pSO" firstAttribute="top" secondItem="vWE-9B-IyO" secondAttribute="bottom" id="Mvh-hg-MF7"/>
-                            <constraint firstAttribute="trailing" secondItem="2fB-ZZ-1I9" secondAttribute="trailing" id="NVa-e5-pSY"/>
+                            <constraint firstAttribute="trailing" secondItem="2fB-ZZ-1I9" secondAttribute="trailing" priority="900" id="NVa-e5-pSY"/>
                             <constraint firstAttribute="bottomMargin" secondItem="NpU-3G-pSO" secondAttribute="bottom" id="SLk-2T-4aA"/>
                             <constraint firstItem="bJr-pU-EF0" firstAttribute="leading" secondItem="1Yy-9Q-f7O" secondAttribute="leading" id="Tlc-s5-Ob5"/>
                             <constraint firstAttribute="trailing" secondItem="NpU-3G-pSO" secondAttribute="trailing" id="cUv-GE-Af9"/>
-                            <constraint firstItem="2fB-ZZ-1I9" firstAttribute="leading" secondItem="1Yy-9Q-f7O" secondAttribute="leading" id="f5g-hN-Y2E"/>
+                            <constraint firstItem="2fB-ZZ-1I9" firstAttribute="leading" secondItem="1Yy-9Q-f7O" secondAttribute="leading" priority="900" id="f5g-hN-Y2E"/>
                             <constraint firstItem="NpU-3G-pSO" firstAttribute="leading" secondItem="1Yy-9Q-f7O" secondAttribute="leading" id="fhV-Zz-bhQ"/>
                             <constraint firstAttribute="bottomMargin" secondItem="bJr-pU-EF0" secondAttribute="bottom" id="g4S-an-Myx"/>
+                            <constraint firstItem="bJr-pU-EF0" firstAttribute="top" relation="greaterThanOrEqual" secondItem="2fB-ZZ-1I9" secondAttribute="bottom" id="kzM-gC-XPY"/>
                             <constraint firstItem="2fB-ZZ-1I9" firstAttribute="top" secondItem="vWE-9B-IyO" secondAttribute="bottom" id="mi0-cJ-H6i"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="7EX-0N-7dl"/>
+                            </mask>
+                        </variation>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
