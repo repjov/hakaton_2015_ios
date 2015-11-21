@@ -1,0 +1,16 @@
+PODS:
+  - SocketRocket (0.4.2)
+  - TPKeyboardAvoiding (1.2.10)
+  - youtube-ios-player-helper (0.1.5)
+
+DEPENDENCIES:
+  - SocketRocket (~> 0.4.2)
+  - TPKeyboardAvoiding (~> 1.2.1)
+  - youtube-ios-player-helper (~> 0.1.5)
+
+SPEC CHECKSUMS:
+  SocketRocket: ffe08119b00ef982f6c37052a4705a057c8494ad
+  TPKeyboardAvoiding: 614ebec846ec28b83d548769297fa5fb56468904
+  youtube-ios-player-helper: 8706bb155ffee74fbe5f2f5cf41c2dafe60dc155
+
+COCOAPODS: 0.39.0

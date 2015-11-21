@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Pods.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SocketRocket.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>TPKeyboardAvoiding.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>youtube-ios-player-helper-Assets.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>youtube-ios-player-helper.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>6CE10B8646127722C6F0CCDCC2ADBBDE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D6E809D78ECD544A85FB6FB601A9A16A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DC4A9090F5C0D7A6B6949DDBA7E24BBF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F271A7F97C082AB4AB467BA5642CB0A0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FD845CF6A17649834EB9A1339584440C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
