@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D75784731C008A010003F185 /* CodeInputScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = D75784721C008A010003F185 /* CodeInputScreen.m */; };
+		D75784761C008A330003F185 /* PreviewsScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = D75784751C008A330003F185 /* PreviewsScreen.m */; };
+		D757847A1C008B030003F185 /* PreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D75784791C008B030003F185 /* PreviewCell.m */; };
 		D7DB63661C00677100381E51 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DB63651C00677100381E51 /* main.m */; };
 		D7DB63691C00677100381E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DB63681C00677100381E51 /* AppDelegate.m */; };
 		D7DB636C1C00677100381E51 /* RegisterScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DB636B1C00677100381E51 /* RegisterScreen.m */; };
@@ -27,6 +30,12 @@
 /* Begin PBXFileReference section */
 		0E32CCB365585F081049D3EE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EC7001430ED5449A22E2659 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		D75784711C008A010003F185 /* CodeInputScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeInputScreen.h; sourceTree = "<group>"; };
+		D75784721C008A010003F185 /* CodeInputScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeInputScreen.m; sourceTree = "<group>"; };
+		D75784741C008A330003F185 /* PreviewsScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewsScreen.h; sourceTree = "<group>"; };
+		D75784751C008A330003F185 /* PreviewsScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewsScreen.m; sourceTree = "<group>"; };
+		D75784781C008B030003F185 /* PreviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewCell.h; sourceTree = "<group>"; };
+		D75784791C008B030003F185 /* PreviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewCell.m; sourceTree = "<group>"; };
 		D7DB63611C00677100381E51 /* ChildTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChildTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7DB63651C00677100381E51 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D7DB63671C00677100381E51 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -73,6 +82,15 @@
 				0E32CCB365585F081049D3EE /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D75784771C008AE40003F185 /* PreviewCell */ = {
+			isa = PBXGroup;
+			children = (
+				D75784781C008B030003F185 /* PreviewCell.h */,
+				D75784791C008B030003F185 /* PreviewCell.m */,
+			);
+			name = PreviewCell;
 			sourceTree = "<group>";
 		};
 		D7DB63581C00677100381E51 = {
@@ -156,6 +174,11 @@
 			children = (
 				D7DB636A1C00677100381E51 /* RegisterScreen.h */,
 				D7DB636B1C00677100381E51 /* RegisterScreen.m */,
+				D75784711C008A010003F185 /* CodeInputScreen.h */,
+				D75784721C008A010003F185 /* CodeInputScreen.m */,
+				D75784741C008A330003F185 /* PreviewsScreen.h */,
+				D75784751C008A330003F185 /* PreviewsScreen.m */,
+				D75784771C008AE40003F185 /* PreviewCell */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -312,14 +335,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D75784761C008A330003F185 /* PreviewsScreen.m in Sources */,
 				D7DB63921C00739700381E51 /* NSString+Extensions.m in Sources */,
 				D7DB63871C006D7300381E51 /* NetworkRequestSender.m in Sources */,
 				D7DB63861C006D7300381E51 /* NetworkManager.m in Sources */,
+				D75784731C008A010003F185 /* CodeInputScreen.m in Sources */,
 				D7DB636C1C00677100381E51 /* RegisterScreen.m in Sources */,
 				D7DB638C1C00730600381E51 /* Consts.m in Sources */,
 				D7DB63971C0073C600381E51 /* CurrentUserSession.m in Sources */,
 				D7DB63691C00677100381E51 /* AppDelegate.m in Sources */,
 				D7DB63661C00677100381E51 /* main.m in Sources */,
+				D757847A1C008B030003F185 /* PreviewCell.m in Sources */,
 				D7DB63931C00739700381E51 /* NSString+Tools.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

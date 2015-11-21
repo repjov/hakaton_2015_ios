@@ -32,6 +32,7 @@ extern NSString *const kServerURL;
 #pragma mark - Server Endpoints
 
 extern NSString *const kRegisterEnpoint;
+extern NSString *const kActivationEnpoint;
 extern NSString *const kAllListsEnpoint;
 extern NSString *const kAllVideoInListEnpoint;
 extern NSString *const kTrackingEnpoint;

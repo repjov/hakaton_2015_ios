@@ -27,6 +27,7 @@ NSString *const kServerURL = @"http://api.instasound.com";
 #pragma mark - Server Endpoints
 
 NSString *const kRegisterEnpoint = @"/new";
+NSString *const kActivationEnpoint = @"/activation";
 NSString *const kAllListsEnpoint = @"/%@/lists";
 NSString *const kAllVideoInListEnpoint = @"/%@/lists/%@";
 NSString *const kTrackingEnpoint = @"/%@/play/tracking";
