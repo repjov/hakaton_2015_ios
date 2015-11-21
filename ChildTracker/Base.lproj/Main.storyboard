@@ -63,12 +63,18 @@
                                         <animations/>
                                         <color key="backgroundColor" red="1" green="0.167214376" blue="0.1471085516" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="320" id="jb4-8q-C1m"/>
                                             <constraint firstAttribute="width" constant="320" id="oUf-ac-wfI"/>
                                             <constraint firstAttribute="height" constant="43" id="ywC-0x-QJJ"/>
                                         </constraints>
                                         <state key="normal" title="Зарегестрироваться">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="oUf-ac-wfI"/>
+                                            </mask>
+                                        </variation>
                                         <connections>
                                             <action selector="registerButtonPress:" destination="Zcu-sj-zYG" eventType="touchUpInside" id="5SC-Tr-Tjh"/>
                                         </connections>
@@ -85,22 +91,23 @@
                                     <constraint firstItem="DYS-v6-A5C" firstAttribute="top" secondItem="AhW-p6-9bf" secondAttribute="bottom" id="Si7-qV-zc5"/>
                                     <constraint firstItem="Ccq-TZ-SeP" firstAttribute="top" secondItem="DYS-v6-A5C" secondAttribute="bottom" constant="13" id="XWo-eU-va3"/>
                                     <constraint firstItem="AhW-p6-9bf" firstAttribute="centerX" secondItem="HRM-oD-1Fl" secondAttribute="centerX" id="YCJ-dK-CH5"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ccq-TZ-SeP" secondAttribute="bottom" priority="950" constant="1" id="ZrY-wi-C6c"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ccq-TZ-SeP" secondAttribute="bottom" priority="950" constant="20" id="ZrY-wi-C6c"/>
                                     <constraint firstAttribute="bottom" secondItem="Ccq-TZ-SeP" secondAttribute="bottom" constant="224" id="cSN-r3-Zgm"/>
                                     <constraint firstItem="DYS-v6-A5C" firstAttribute="centerX" secondItem="HRM-oD-1Fl" secondAttribute="centerX" id="gc8-UV-St2"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ccq-TZ-SeP" secondAttribute="trailing" id="h4w-WF-EVN"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ccq-TZ-SeP" secondAttribute="trailing" priority="1" id="h4w-WF-EVN"/>
                                     <constraint firstAttribute="bottom" secondItem="DYS-v6-A5C" secondAttribute="bottom" constant="285" id="hgf-ca-GKN"/>
                                     <constraint firstItem="DYS-v6-A5C" firstAttribute="leading" secondItem="HRM-oD-1Fl" secondAttribute="leading" priority="1" constant="53" id="j0I-Sg-qRJ"/>
                                     <constraint firstItem="AhW-p6-9bf" firstAttribute="top" secondItem="iG7-kg-oWb" secondAttribute="bottom" constant="5" id="m10-wF-vt5"/>
                                     <constraint firstAttribute="bottom" secondItem="Ccq-TZ-SeP" secondAttribute="bottom" priority="1" constant="10" id="oQv-za-Idd"/>
                                     <constraint firstAttribute="trailing" secondItem="DYS-v6-A5C" secondAttribute="trailing" priority="1" constant="53" id="qPx-dK-wS2"/>
-                                    <constraint firstItem="Ccq-TZ-SeP" firstAttribute="leading" secondItem="HRM-oD-1Fl" secondAttribute="leading" id="qdF-7e-PrA"/>
+                                    <constraint firstItem="Ccq-TZ-SeP" firstAttribute="leading" secondItem="HRM-oD-1Fl" secondAttribute="leading" priority="1" id="qdF-7e-PrA"/>
                                     <constraint firstAttribute="bottom" secondItem="iG7-kg-oWb" secondAttribute="bottom" constant="348" id="tOZ-y2-tk4"/>
                                     <constraint firstItem="iG7-kg-oWb" firstAttribute="centerX" secondItem="HRM-oD-1Fl" secondAttribute="centerX" id="xrI-1q-wdX"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="Gop-CI-ek9"/>
+                                        <exclude reference="tOZ-y2-tk4"/>
                                         <exclude reference="0Fa-7b-xga"/>
                                         <exclude reference="NIf-pj-KtB"/>
                                         <exclude reference="Si7-qV-zc5"/>
@@ -331,7 +338,7 @@
                                     <constraint firstItem="Jmn-bh-uNT" firstAttribute="leading" secondItem="zHJ-Gr-ftX" secondAttribute="leading" priority="1" id="2iX-Wx-iAG"/>
                                     <constraint firstItem="w85-gu-Ndd" firstAttribute="centerX" secondItem="zHJ-Gr-ftX" secondAttribute="centerX" id="3MH-OJ-cdc"/>
                                     <constraint firstItem="zx2-Kx-Oze" firstAttribute="centerX" secondItem="zHJ-Gr-ftX" secondAttribute="centerX" id="4IA-wc-2t8"/>
-                                    <constraint firstAttribute="bottom" secondItem="0ul-h4-0gj" secondAttribute="bottom" priority="1" constant="10" id="BLH-Aq-uwA"/>
+                                    <constraint firstAttribute="bottom" secondItem="0ul-h4-0gj" secondAttribute="bottom" priority="1" constant="20" id="BLH-Aq-uwA"/>
                                     <constraint firstAttribute="trailing" secondItem="Jmn-bh-uNT" secondAttribute="trailing" priority="1" id="DBy-F4-HzH"/>
                                     <constraint firstItem="hK7-bh-a6L" firstAttribute="centerX" secondItem="zHJ-Gr-ftX" secondAttribute="centerX" id="HKm-vJ-faA"/>
                                     <constraint firstItem="ddz-i4-dlY" firstAttribute="centerX" secondItem="zHJ-Gr-ftX" secondAttribute="centerX" id="Qo5-Hg-1IU"/>
