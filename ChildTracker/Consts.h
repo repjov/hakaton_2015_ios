@@ -9,7 +9,7 @@
 //
 
 #import <Foundation/Foundation.h>
-//#import "NSString+Extensions.h"
+#import "NSString+Extensions.h"
 
 //typedef NS_ENUM (NSInteger, MessageTabIndex) {
 //    TextMessageTabIndex = 0,

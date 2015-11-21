@@ -15,6 +15,7 @@
 - (void)resetSession;
 
 @property (strong, nonatomic) NSString *token;
+@property (strong, nonatomic) NSString *email;
 
 SINGLETON_DEF
 

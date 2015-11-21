@@ -7,6 +7,8 @@
 //
 
 #import "RegisterScreen.h"
+#import "CurrentUserSession.h"
+#import "NSString+Extensions.h"
 
 @interface RegisterScreen ()
 
@@ -32,6 +34,11 @@
 - (IBAction)registerButtonPress:(id)sender
 {
     //[self goCOdeINputScreen];
+    
+    NSString *userEmail = self.emailTextField.text;
+    if ([NSString isNilOrEmpty:userEmail]) return;
+    
+    [CurrentUserSession sharedInstance].email = userEmail;
 }
 
 - (void)goCOdeINputScreen

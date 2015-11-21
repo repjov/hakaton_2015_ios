@@ -10,4 +10,6 @@
 
 @interface CodeInputScreen : UIViewController
 
+@property (strong, nonatomic) IBOutlet UILabel *userEmail;
+
 @end

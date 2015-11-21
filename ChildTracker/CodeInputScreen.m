@@ -7,6 +7,7 @@
 //
 
 #import "CodeInputScreen.h"
+#import "CurrentUserSession.h"
 
 @interface CodeInputScreen ()
 
@@ -14,9 +15,17 @@
 
 @implementation CodeInputScreen
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.userEmail.text = [CurrentUserSession sharedInstance].email;
 }
 
 - (void)didReceiveMemoryWarning {
