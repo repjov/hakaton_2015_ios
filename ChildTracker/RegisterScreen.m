@@ -74,9 +74,12 @@
     if (kWorkWithBackend)
     {
         __weak __typeof(self)weakSelf = self;
-        [NetworkManager registerUser:userEmail success:^(NSDictionary *resonseDict) {
+        [NetworkManager registerUser:userEmail success:^(NSData *data) {
             __strong __typeof(self)strongSelf = weakSelf;
-            NSString *token = resonseDict[@"token"];
+            
+            NSError *parseError = nil;
+            NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
+            NSString *token = responseDictionary[@"token"];
             if (token)
             {
                 [StoreData saveToken:token];

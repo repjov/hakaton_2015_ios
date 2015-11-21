@@ -13,7 +13,7 @@
 @implementation NetworkManager
 
 + (void)registerUser:(NSString *)email
-             success:(void (^)(NSDictionary *resonseDict))successBlock
+             success:(void (^)(NSData *data))successBlock
                error:(void (^)(NSString *localizedDescriptionText))errorBlock
              cleanup:(void (^)())cleanupBlock
 
@@ -29,7 +29,7 @@
 }
 
 + (void)getListsForToken:(NSString *)token
-         success:(void (^)(NSDictionary *resonseDict))successBlock
+         success:(void (^)(NSData *data))successBlock
            error:(void (^)(NSString *localizedDescriptionText))errorBlock
          cleanup:(void (^)())cleanupBlock
 

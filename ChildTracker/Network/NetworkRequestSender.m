@@ -15,7 +15,7 @@
 
 + (void)sendToEndpoint:(NSString *)endpoint
                   body:(NSString *)body
-               success:(void (^)(NSDictionary *resonseDict))successBlock
+               success:(void (^)(NSData *data))successBlock
                  error:(void (^)(NSString *localizedDescriptionText))errorBlock
                cleanup:(void (^)())cleanupBlock
 {
@@ -46,7 +46,7 @@
 + (void)handleRequestAnswerWith:(NSData *)data
                        response:(NSURLResponse *)response
                           error:(NSError *)error
-                        success:(void (^)(NSDictionary *resonseDict))successBlock
+                        success:(void (^)(NSData *data))successBlock
                           error:(void (^)(NSString *localizedDescriptionText))errorBlock
                         cleanup:(void (^)())cleanupBlock
 {
@@ -63,46 +63,47 @@
             NSInteger HTTPstatusCode = [(NSHTTPURLResponse *)response statusCode];
             
             NSError *parseError = nil;
-            NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
+            //NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
             //if (kNetworkLogging) NSLog(@"%@", responseDictionary);
             
             BOOL isSuccessResponseCodeIs = (HTTPstatusCode == 200);
             if (isSuccessResponseCodeIs)
             {
-                if (!parseError)
-                {
-                    if (successBlock) successBlock(responseDictionary);
-                }
-                else
-                {
-                    // Got success asnwer from server, but error occured while response parse
-                    if (errorBlock) errorBlock(parseError.localizedDescription);
-                }
+                if (successBlock) successBlock(data);
+//                if (!parseError)
+//                {
+//                    if (successBlock) successBlock(responseDictionary);
+//                }
+//                else
+//                {
+//                    // Got success asnwer from server, but error occured while response parse
+//                    if (errorBlock) errorBlock(parseError.localizedDescription);
+//                }
             }
             else
             {
-                if (!parseError)
-                {
-                    // Got unsuccess asnwer from server
-                    NSDictionary *errosDict = [responseDictionary[@"errors"] firstObject];
-                    if (errosDict != nil)
-                    {
-                        if (errorBlock) errorBlock(errosDict[@"message"]);
-                    }
-                    else
-                    {
-                        NSString *errorString = responseDictionary[@"message"];
-                        if (errorString)
-                        {
-                            if (errorBlock) errorBlock(errorString);
-                        }
-                        else
-                        {
-                            // Got unsuccess asnwer from server, but can't parse it
-                            if (errorBlock) errorBlock(@"Error response from server");
-                        }
-                    }
-                }
+//                if (!parseError)
+//                {
+//                    // Got unsuccess asnwer from server
+//                    NSDictionary *errosDict = [responseDictionary[@"errors"] firstObject];
+//                    if (errosDict != nil)
+//                    {
+//                        if (errorBlock) errorBlock(errosDict[@"message"]);
+//                    }
+//                    else
+//                    {
+//                        NSString *errorString = responseDictionary[@"message"];
+//                        if (errorString)
+//                        {
+//                            if (errorBlock) errorBlock(errorString);
+//                        }
+//                        else
+//                        {
+//                            // Got unsuccess asnwer from server, but can't parse it
+//                            if (errorBlock) errorBlock(@"Error response from server");
+//                        }
+//                    }
+//                }
             }
         }
     }

@@ -14,7 +14,7 @@
 
 + (void)sendToEndpoint:(NSString *)endpoint
                   body:(NSString *)body
-               success:(void (^)(NSDictionary *resonseDict))successBlock
+               success:(void (^)(NSData *data))successBlock
                  error:(void (^)(NSString *localizedDescriptionText))error
                cleanup:(void (^)())cleanup;
 

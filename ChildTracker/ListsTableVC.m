@@ -44,9 +44,13 @@
     if (kWorkWithBackend)
     {
         __weak __typeof(self)weakSelf = self;
-        [NetworkManager getListsForToken:token success:^(NSDictionary *resonseDict) {
+        [NetworkManager getListsForToken:token success:^(NSData *data) {
             __strong __typeof(self)strongSelf = weakSelf;
-            [strongSelf saveLists:resonseDict];
+            
+            NSError *parseError = nil;
+            NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
+            [strongSelf saveLists:responseDictionary];
+            
             [strongSelf.tableView reloadData];
             
         } error:^(NSString *localizedDescriptionText) {} cleanup:^{}];
