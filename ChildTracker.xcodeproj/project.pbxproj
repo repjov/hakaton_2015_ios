@@ -10,6 +10,7 @@
 		D75784731C008A010003F185 /* CodeInputScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = D75784721C008A010003F185 /* CodeInputScreen.m */; };
 		D75784761C008A330003F185 /* PreviewsScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = D75784751C008A330003F185 /* PreviewsScreen.m */; };
 		D757847A1C008B030003F185 /* PreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D75784791C008B030003F185 /* PreviewCell.m */; };
+		D78E5D531C00947400B24531 /* StoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = D78E5D521C00947400B24531 /* StoreData.m */; };
 		D7DB63661C00677100381E51 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DB63651C00677100381E51 /* main.m */; };
 		D7DB63691C00677100381E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DB63681C00677100381E51 /* AppDelegate.m */; };
 		D7DB636C1C00677100381E51 /* RegisterScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DB636B1C00677100381E51 /* RegisterScreen.m */; };
@@ -36,6 +37,8 @@
 		D75784751C008A330003F185 /* PreviewsScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewsScreen.m; sourceTree = "<group>"; };
 		D75784781C008B030003F185 /* PreviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewCell.h; sourceTree = "<group>"; };
 		D75784791C008B030003F185 /* PreviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewCell.m; sourceTree = "<group>"; };
+		D78E5D511C00947400B24531 /* StoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreData.h; sourceTree = "<group>"; };
+		D78E5D521C00947400B24531 /* StoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreData.m; sourceTree = "<group>"; };
 		D7DB63611C00677100381E51 /* ChildTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChildTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7DB63651C00677100381E51 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D7DB63671C00677100381E51 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -199,6 +202,8 @@
 			children = (
 				D7DB63951C0073C600381E51 /* CurrentUserSession.h */,
 				D7DB63961C0073C600381E51 /* CurrentUserSession.m */,
+				D78E5D511C00947400B24531 /* StoreData.h */,
+				D78E5D521C00947400B24531 /* StoreData.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -336,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D75784761C008A330003F185 /* PreviewsScreen.m in Sources */,
+				D78E5D531C00947400B24531 /* StoreData.m in Sources */,
 				D7DB63921C00739700381E51 /* NSString+Extensions.m in Sources */,
 				D7DB63871C006D7300381E51 /* NetworkRequestSender.m in Sources */,
 				D7DB63861C006D7300381E51 /* NetworkManager.m in Sources */,

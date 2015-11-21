@@ -25,7 +25,10 @@
 {
     [super viewWillAppear:animated];
     
-    self.userEmail.text = [CurrentUserSession sharedInstance].email;
+    if ([CurrentUserSession sharedInstance].email != nil)
+    {
+        self.userEmail.text = [CurrentUserSession sharedInstance].email;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
