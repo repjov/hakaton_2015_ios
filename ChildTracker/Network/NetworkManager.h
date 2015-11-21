@@ -26,4 +26,9 @@
                     error:(void (^)(NSString *localizedDescriptionText))errorBlock
                   cleanup:(void (^)())cleanupBlock;
 
++ (void)getControlForToken:(NSString *)token
+                   success:(void (^)(NSData *data))successBlock
+                     error:(void (^)(NSString *localizedDescriptionText))errorBlock
+                   cleanup:(void (^)())cleanupBlock;
+
 @end

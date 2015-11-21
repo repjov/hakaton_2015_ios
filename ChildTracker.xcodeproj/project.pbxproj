@@ -13,11 +13,11 @@
 		D78E5D561C00A86100B24531 /* PreviewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D78E5D551C00A86100B24531 /* PreviewTableViewCell.m */; };
 		D78E5D591C00B6DA00B24531 /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = D78E5D581C00B6DA00B24531 /* Timer.m */; };
 		D78E5D5C1C00CF7300B24531 /* ListsTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D78E5D5B1C00CF7300B24531 /* ListsTableVC.m */; };
+		D78E5D5F1C01162300B24531 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D78E5D5E1C01162300B24531 /* Assets.xcassets */; };
 		D7DB63661C00677100381E51 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DB63651C00677100381E51 /* main.m */; };
 		D7DB63691C00677100381E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DB63681C00677100381E51 /* AppDelegate.m */; };
 		D7DB636C1C00677100381E51 /* RegisterScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DB636B1C00677100381E51 /* RegisterScreen.m */; };
 		D7DB636F1C00677100381E51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7DB636D1C00677100381E51 /* Main.storyboard */; };
-		D7DB63711C00677100381E51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7DB63701C00677100381E51 /* Assets.xcassets */; };
 		D7DB63741C00677100381E51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7DB63721C00677100381E51 /* LaunchScreen.storyboard */; };
 		D7DB637F1C006D6100381E51 /* Assets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D7DB637C1C006D6100381E51 /* Assets.bundle */; };
 		D7DB63801C006D6100381E51 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7DB637D1C006D6100381E51 /* Info.plist */; };
@@ -45,6 +45,7 @@
 		D78E5D581C00B6DA00B24531 /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timer.m; sourceTree = "<group>"; };
 		D78E5D5A1C00CF7300B24531 /* ListsTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListsTableVC.h; sourceTree = "<group>"; };
 		D78E5D5B1C00CF7300B24531 /* ListsTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListsTableVC.m; sourceTree = "<group>"; };
+		D78E5D5E1C01162300B24531 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7DB63611C00677100381E51 /* ChildTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChildTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7DB63651C00677100381E51 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D7DB63671C00677100381E51 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -52,7 +53,6 @@
 		D7DB636A1C00677100381E51 /* RegisterScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterScreen.h; sourceTree = "<group>"; };
 		D7DB636B1C00677100381E51 /* RegisterScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterScreen.m; sourceTree = "<group>"; };
 		D7DB636E1C00677100381E51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D7DB63701C00677100381E51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7DB63731C00677100381E51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D7DB63751C00677100381E51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7DB637C1C006D6100381E51 /* Assets.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Assets.bundle; path = "youtube-ios-player-helper/Assets.bundle"; sourceTree = "<group>"; };
@@ -138,7 +138,7 @@
 				D78E5D5D1C00D29C00B24531 /* DataObjects */,
 				D7DB63941C0073BB00381E51 /* Data */,
 				D7DB636D1C00677100381E51 /* Main.storyboard */,
-				D7DB63701C00677100381E51 /* Assets.xcassets */,
+				D78E5D5E1C01162300B24531 /* Assets.xcassets */,
 				D7DB63721C00677100381E51 /* LaunchScreen.storyboard */,
 				D7DB63751C00677100381E51 /* Info.plist */,
 				D7DB63641C00677100381E51 /* Supporting Files */,
@@ -297,9 +297,9 @@
 			files = (
 				D7DB637F1C006D6100381E51 /* Assets.bundle in Resources */,
 				D7DB63741C00677100381E51 /* LaunchScreen.storyboard in Resources */,
-				D7DB63711C00677100381E51 /* Assets.xcassets in Resources */,
 				D7DB63801C006D6100381E51 /* Info.plist in Resources */,
 				D7DB636F1C00677100381E51 /* Main.storyboard in Resources */,
+				D78E5D5F1C01162300B24531 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

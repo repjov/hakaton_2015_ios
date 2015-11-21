@@ -13,6 +13,7 @@
 
 @property (strong, atomic) NSTimer *timer;
 @property (assign, atomic) int totalTimeElapsedInSeconds;
+@property (assign, atomic) BOOL isCheckStatusControl;
 
 - (void)start;
 - (void)stop;

@@ -28,14 +28,14 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRM-oD-1Fl" customClass="TPKeyboardAvoidingScrollView">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChildrenTracker + Oval 2 + Rectangle 9" translatesAutoresizingMaskIntoConstraints="NO" id="iG7-kg-oWb">
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ChildrenTracker + Oval 2 + Rectangle 9" translatesAutoresizingMaskIntoConstraints="NO" id="iG7-kg-oWb">
                                         <rect key="frame" x="78" y="45" width="163" height="111"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="iG7-kg-oWb" secondAttribute="height" multiplier="22:15" id="eoi-e0-WTG"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Почтовый адрес для регистрации" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AhW-p6-9bf">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Почтовый адрес для регистрации" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AhW-p6-9bf">
                                         <rect key="frame" x="53" y="163" width="214" height="25"/>
                                         <animations/>
                                         <constraints>
@@ -46,7 +46,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ваш почтовый адрес" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DYS-v6-A5C">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ваш почтовый адрес" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DYS-v6-A5C">
                                         <rect key="frame" x="16" y="194" width="288" height="30"/>
                                         <animations/>
                                         <constraints>
@@ -64,7 +64,7 @@
                                             <outlet property="delegate" destination="Zcu-sj-zYG" id="1qr-Ic-qNv"/>
                                         </connections>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ccq-TZ-SeP">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ccq-TZ-SeP">
                                         <rect key="frame" x="0.0" y="237" width="320" height="43"/>
                                         <animations/>
                                         <color key="backgroundColor" red="1" green="0.167214376" blue="0.1471085516" alpha="1" colorSpace="calibratedRGB"/>
@@ -85,7 +85,7 @@
                                             <action selector="registerButtonPress:" destination="Zcu-sj-zYG" eventType="touchUpInside" id="5SC-Tr-Tjh"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hdV-6f-IFX" userLabel="redUnderline">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hdV-6f-IFX" userLabel="redUnderline">
                                         <rect key="frame" x="16" y="224" width="288" height="2"/>
                                         <animations/>
                                         <color key="backgroundColor" red="1" green="0.167214376" blue="0.1471085516" alpha="1" colorSpace="calibratedRGB"/>
@@ -297,6 +297,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rys-vr-dE7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2306" y="1011"/>
+        </scene>
+        <!--sleepScreen-->
+        <scene sceneID="VYg-nJ-EYY">
+            <objects>
+                <viewController storyboardIdentifier="sleepScreenID" id="Wwq-Ib-i8N" userLabel="sleepScreen" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zAe-x9-6TR"/>
+                        <viewControllerLayoutGuide type="bottom" id="mAD-Ee-ZfQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tG4-hz-Ewa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Layer_x0020_1" translatesAutoresizingMaskIntoConstraints="NO" id="8OA-Uk-uUC">
+                                <rect key="frame" x="41.5" y="222.5" width="237" height="123"/>
+                                <animations/>
+                            </imageView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="8OA-Uk-uUC" firstAttribute="centerY" secondItem="tG4-hz-Ewa" secondAttribute="centerYWithinMargins" id="5KS-lE-t6c"/>
+                            <constraint firstItem="8OA-Uk-uUC" firstAttribute="centerX" secondItem="tG4-hz-Ewa" secondAttribute="centerXWithinMargins" id="Y6N-pJ-pHu"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Ru-FU-cgA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2711" y="707"/>
         </scene>
         <!--Code Input Screen-->
         <scene sceneID="9Mw-M9-QQg">
@@ -598,6 +629,7 @@
     <resources>
         <image name="ChildrenTracker + Oval 2 + Rectangle 9" width="143" height="111"/>
         <image name="Group" width="99" height="127"/>
+        <image name="Layer_x0020_1" width="237" height="123"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2Fk-hM-ldK"/>

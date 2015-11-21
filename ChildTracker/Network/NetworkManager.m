@@ -65,6 +65,24 @@
     [NetworkRequestSender sendToEndpoint:endpoint body:body success:successBlock error:errorBlock cleanup:cleanupBlock];
 }
 
++ (void)getControlForToken:(NSString *)token
+                  success:(void (^)(NSData *data))successBlock
+                    error:(void (^)(NSString *localizedDescriptionText))errorBlock
+                  cleanup:(void (^)())cleanupBlock
+
+{
+    NSAssert((token != nil), kAssertMessageFormat, __PRETTY_FUNCTION__, @"email");
+    
+    if (token == nil) return;
+    
+    NSString *body;
+    body = [NSString stringWithFormat: @"{}"];
+    
+    NSString *endpoint = [NSString stringWithFormat:@"/%@/play/control", token];
+    
+    [NetworkRequestSender sendToEndpoint:endpoint body:body success:successBlock error:errorBlock cleanup:cleanupBlock];
+}
+
 //+ (void)sendCode:(NSString *)code
 //             success:(void (^)(NSString *accessToken))successBlock
 //               error:(void (^)(NSString *localizedDescriptionText))errorBlock
