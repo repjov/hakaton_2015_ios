@@ -246,13 +246,32 @@
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"Playback started" object:self];
     [self.YTPlayerV playVideo];
-    
-    [self sendVideoTrackingToBackend:self.currentVideo];
 }
 
 - (void)playerView:(YTPlayerView *)playerView didPlayTime:(float)playTime
 {
     //NSLog(@"Video: <%@>, playTime: %f", self.currentVideo[@"id"], playTime);
+}
+
+- (void)playerView:(YTPlayerView *)playerView didChangeToState:(YTPlayerState)state
+{
+    if (state == kYTPlayerStatePlaying)
+    {
+        [self sendVideoTrackingToBackend:self.currentVideo];
+        NSLog(@" @@@ 1 kYTPlayerStatePlaying");
+    }
+    
+    if (state == kYTPlayerStatePaused)
+    {
+        [self sendVideoTrackingToBackend:@{}];
+        NSLog(@" @@@ 2 kYTPlayerStatePaused");
+    }
+    
+    if (state == kYTPlayerStateEnded)
+    {
+        [self sendVideoTrackingToBackend:@{}];
+        NSLog(@" @@@ 3 kYTPlayerStateEnded");
+    }
 }
 
 @end

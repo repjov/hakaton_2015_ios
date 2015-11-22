@@ -52,7 +52,7 @@
             
             NSError *parseError = nil;
             NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
-            NSLog(@" ### getControlForToken : <%@>", responseDictionary);
+            //NSLog(@" ### getControlForToken : <%@>", responseDictionary);
             
             NSString *status = responseDictionary[@"the_end"];
             if (status != nil)
