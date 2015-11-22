@@ -41,7 +41,12 @@
     if (token == nil) return;
     
     NSString *body = nil;
+    
+    //:@"POST"
     //body = [NSString stringWithFormat: @"[{\"id\":1448149362122,\"name\":\"Новая подборка\",\"active\":true},{\"id\":1448152392672,\"name\":\"Новая подборка\",\"active\":true},{\"id\":1448152461525,\"name\":\"Новая подборка\",\"active\":true},{\"id\":1448152536197,\"name\":\"Новая подборка\",\"active\":true},{\"id\":1448152576352,\"name\":\"Новая подборка\",\"active\":true},{\"id\":1448152623228,\"name\":\"Новая подборка\",\"active\":true}]"];
+    
+    //@"POST"
+    //body = [NSString stringWithFormat: @"[{\"id\":1448149362122,\"name\":\"Детская Подборка #1\",\"active\":true,\"thumbnail\":\"https://i.ytimg.com/vi/6p26d5lVuiw/hqdefault.jpg\"},{\"id\":1448152392672,\"name\":\"Детская Подборка #2\",\"active\":true,\"thumbnail\":\"https://i.ytimg.com/vi/grrn9NU3KiA/hqdefault.jpg\"},{\"id\":1448152461525,\"name\":\"Детская Подборка #3\",\"active\":true,\"thumbnail\":\"https://i.ytimg.com/vi/T_9m73boXHg/hqdefault.jpg\"},{\"id\":1448152536197,\"name\":\"Детская Подборка #4\",\"active\":true,\"thumbnail\":\"https://i.ytimg.com/vi/onTmUaeURs0/hqdefault.jpg\"},{\"id\":1448152576352,\"name\":\"Детская Подборка #5\",\"active\":true,\"thumbnail\":\"https://i.ytimg.com/vi/zJKuknisBZg/hqdefault.jpg\"},{\"id\":1448152623228,\"name\":\"Детская Подборка #6\",\"active\":true,\"thumbnail\":\"https://i.ytimg.com/vi/AMtbjdHWqnk/hqdefault.jpg\"}]"];
     
     NSString *endpoint = [NSString stringWithFormat:@"/%@/lists", token];
     

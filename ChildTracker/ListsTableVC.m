@@ -91,7 +91,7 @@
     
     cell.name.text = listDict[@"name"];
     
-    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:listDict[@"image"]]]];
+    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:listDict[@"thumbnail"]]]];
     cell.image.image = image;
     
     //cell.videosArray = listDict[videosArray];

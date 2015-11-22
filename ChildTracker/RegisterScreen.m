@@ -100,7 +100,7 @@
                 [[CurrentUserSession sharedInstance] startSessionWithToken:token];
                 //[strongSelf getLists];
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [strongSelf goListsScreen];
+                    [strongSelf goMailAgreementScreen];
                 });
             }
             else
@@ -128,11 +128,11 @@
     }
 }
 
-//- (void)goCOdeINputScreen
-//{
-//    //[self.navigationController showViewController:<#(nonnull UIViewController *)#> sender:<#(nullable id)#>];
-//    [self performSegueWithIdentifier: @"segueCodeInput" sender: self];
-//}
+- (void)goMailAgreementScreen
+{
+    //[self.navigationController showViewController:<#(nonnull UIViewController *)#> sender:<#(nullable id)#>];
+    [self performSegueWithIdentifier: @"segueCodeInput" sender: self];
+}
 
 - (void)disableButton
 {

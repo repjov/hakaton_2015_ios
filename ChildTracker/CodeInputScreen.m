@@ -77,7 +77,7 @@
     self.sendAuthCOdeButton.alpha = 1;
 }
 
-- (void)goPreviewsScreen
+- (void)goListsScreen
 {
     //[self.navigationController showViewController:<#(nonnull UIViewController *)#> sender:<#(nullable id)#>];
     [self performSegueWithIdentifier: @"segueLists" sender: self];
@@ -85,7 +85,7 @@
 
 - (IBAction)sendAuthCOdeButtonPress:(id)sender
 {
-    [self goPreviewsScreen];
+    [self goListsScreen];
 }
 
 - (void)textFieldDidChange:(UITextField *)textField
