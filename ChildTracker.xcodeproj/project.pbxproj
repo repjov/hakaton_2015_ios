@@ -15,6 +15,7 @@
 		D78E5D5C1C00CF7300B24531 /* ListsTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D78E5D5B1C00CF7300B24531 /* ListsTableVC.m */; };
 		D78E5D5F1C01162300B24531 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D78E5D5E1C01162300B24531 /* Assets.xcassets */; };
 		D78E5D621C01C26B00B24531 /* SleepVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D78E5D611C01C26B00B24531 /* SleepVC.m */; };
+		D78E5D651C01FE8A00B24531 /* DebugScreenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D78E5D641C01FE8A00B24531 /* DebugScreenVC.m */; };
 		D7DB63661C00677100381E51 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DB63651C00677100381E51 /* main.m */; };
 		D7DB63691C00677100381E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DB63681C00677100381E51 /* AppDelegate.m */; };
 		D7DB636C1C00677100381E51 /* RegisterScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DB636B1C00677100381E51 /* RegisterScreen.m */; };
@@ -49,6 +50,8 @@
 		D78E5D5E1C01162300B24531 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D78E5D601C01C26B00B24531 /* SleepVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepVC.h; sourceTree = "<group>"; };
 		D78E5D611C01C26B00B24531 /* SleepVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepVC.m; sourceTree = "<group>"; };
+		D78E5D631C01FE8A00B24531 /* DebugScreenVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugScreenVC.h; sourceTree = "<group>"; };
+		D78E5D641C01FE8A00B24531 /* DebugScreenVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugScreenVC.m; sourceTree = "<group>"; };
 		D7DB63611C00677100381E51 /* ChildTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChildTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7DB63651C00677100381E51 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D7DB63671C00677100381E51 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -203,6 +206,8 @@
 				D75784751C008A330003F185 /* PreviewsTableVC.m */,
 				D78E5D601C01C26B00B24531 /* SleepVC.h */,
 				D78E5D611C01C26B00B24531 /* SleepVC.m */,
+				D78E5D631C01FE8A00B24531 /* DebugScreenVC.h */,
+				D78E5D641C01FE8A00B24531 /* DebugScreenVC.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -374,6 +379,7 @@
 				D7DB636C1C00677100381E51 /* RegisterScreen.m in Sources */,
 				D7DB638C1C00730600381E51 /* Consts.m in Sources */,
 				D7DB63971C0073C600381E51 /* CurrentUserSession.m in Sources */,
+				D78E5D651C01FE8A00B24531 /* DebugScreenVC.m in Sources */,
 				D7DB63691C00677100381E51 /* AppDelegate.m in Sources */,
 				D78E5D561C00A86100B24531 /* PreviewTableViewCell.m in Sources */,
 				D7DB63661C00677100381E51 /* main.m in Sources */,

@@ -44,7 +44,7 @@
 //    self.myTimer = [[Timer alloc] init];
 //    [self.myTimer start];
     
-    /////////[StoreData deleteSavedToken];
+    ///////[StoreData deleteSavedToken];
     ////////[StoreData saveToken:@"2e1a4d29-d2f6-4260-8489-bc1fd73df933"];
 }
 

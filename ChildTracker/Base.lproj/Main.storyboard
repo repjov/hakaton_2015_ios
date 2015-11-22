@@ -321,6 +321,73 @@
             </objects>
             <point key="canvasLocation" x="2306" y="1011"/>
         </scene>
+        <!--Debug ScreenVC-->
+        <scene sceneID="GwD-h9-cmm">
+            <objects>
+                <viewController id="MQY-sh-1CM" customClass="DebugScreenVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mJp-AV-j6c"/>
+                        <viewControllerLayoutGuide type="bottom" id="ok1-SO-KFE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Gh2-pr-Tt7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vKL-lI-2Ww">
+                                <rect key="frame" x="0.0" y="64" width="320" height="244"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.80818587135608577" green="0.95686274509803915" blue="0.831874230483439" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="244" id="1WP-H9-nYr"/>
+                                    <constraint firstAttribute="width" constant="320" id="qoW-fA-Ia5"/>
+                                </constraints>
+                                <state key="normal" title="Reset Token"/>
+                                <connections>
+                                    <action selector="resetTokenBTPress:" destination="MQY-sh-1CM" eventType="touchUpInside" id="VUb-1v-FeK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FyA-lr-XLo">
+                                <rect key="frame" x="0.0" y="308" width="320" height="260"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.90588235289999997" green="0.8980392157" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="260" id="gNH-9C-hMM"/>
+                                    <constraint firstAttribute="width" constant="320" id="kHm-pn-zJC"/>
+                                </constraints>
+                                <state key="normal" title="Save Test Token"/>
+                                <connections>
+                                    <action selector="saveTokenBTPress:" destination="MQY-sh-1CM" eventType="touchUpInside" id="rrx-23-Dbd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vKL-lI-2Ww" firstAttribute="leading" secondItem="Gh2-pr-Tt7" secondAttribute="leading" id="8eZ-Na-ikO"/>
+                            <constraint firstAttribute="trailing" secondItem="vKL-lI-2Ww" secondAttribute="trailing" id="EH9-Nk-6ab"/>
+                            <constraint firstItem="FyA-lr-XLo" firstAttribute="width" secondItem="vKL-lI-2Ww" secondAttribute="width" id="Ood-HP-Ktc"/>
+                            <constraint firstAttribute="topMargin" secondItem="vKL-lI-2Ww" secondAttribute="top" id="Pqb-zy-FGY"/>
+                            <constraint firstItem="FyA-lr-XLo" firstAttribute="height" secondItem="vKL-lI-2Ww" secondAttribute="height" id="QFu-Rc-Gw3"/>
+                            <constraint firstAttribute="trailing" secondItem="FyA-lr-XLo" secondAttribute="trailing" id="TWv-VV-ISo"/>
+                            <constraint firstItem="vKL-lI-2Ww" firstAttribute="top" secondItem="mJp-AV-j6c" secondAttribute="bottom" id="bGu-GQ-RGG"/>
+                            <constraint firstItem="FyA-lr-XLo" firstAttribute="leading" secondItem="Gh2-pr-Tt7" secondAttribute="leading" id="pot-sr-vse"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="FyA-lr-XLo" secondAttribute="bottom" id="wsx-b9-ydH"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Pqb-zy-FGY"/>
+                                <exclude reference="Ood-HP-Ktc"/>
+                                <exclude reference="QFu-Rc-Gw3"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zL3-Kb-DjX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2298" y="336"/>
+        </scene>
         <!--sleepScreen-->
         <scene sceneID="VYg-nJ-EYY">
             <objects>
@@ -405,6 +472,7 @@
                                         <animations/>
                                         <color key="backgroundColor" red="1" green="0.167214376" blue="0.1471085516" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="288" id="5HL-mL-wdy"/>
                                             <constraint firstAttribute="height" constant="43" id="9yz-r0-Kmy"/>
                                             <constraint firstAttribute="width" constant="320" id="oOF-uB-XND"/>
                                         </constraints>
@@ -417,7 +485,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <action selector="sendAuthCOdeButtonPress:" destination="9Lp-ew-I55" eventType="touchUpInside" id="krg-VT-XTc"/>
+                                            <segue destination="o7Q-qf-uEB" kind="show" id="EC7-Zx-oXy"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -558,7 +626,18 @@
                             <constraint firstItem="hfy-gF-Bq3" firstAttribute="leading" secondItem="gxb-Nf-I89" secondAttribute="leading" id="zmi-5H-TNm"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="j1Q-Bp-98i"/>
+                    <navigationItem key="navigationItem" id="j1Q-Bp-98i">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="6Dn-3j-Rbx">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qz9-DC-uWp">
+                                <rect key="frame" x="233" y="7" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <connections>
+                                    <segue destination="MQY-sh-1CM" kind="show" id="h27-D0-30P"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
@@ -727,9 +806,9 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="7dD-95-CDs"/>
-                                        <exclude reference="jBG-EX-xQW"/>
                                         <exclude reference="ZWY-Qf-1dR"/>
                                         <exclude reference="eYS-ex-6R7"/>
+                                        <exclude reference="jBG-EX-xQW"/>
                                     </mask>
                                 </variation>
                             </scrollView>
