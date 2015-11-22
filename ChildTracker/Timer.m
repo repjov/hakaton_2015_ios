@@ -54,7 +54,7 @@
             NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
             //NSLog(@" ### getControlForToken : <%@>", responseDictionary);
             
-            NSString *status = responseDictionary[@"the_end"];
+            NSNumber *status = responseDictionary[@"the_end"];
             if (status != nil)
             {
 //                BOOL needToStop = (
@@ -62,9 +62,9 @@
 //                                   ([status isEqualToString:@"yes"]) ||
 //                                   ([status isEqualToString:@"TRUE"]) ||
 //                                   ([status isEqualToString:@"true"]) ||
-//                                   ([status isEqualToString:@"1"]) ||
+//                  `                 ([status isEqualToString:@"1"]) ||
 //                                   ([status isEqualToString:@"Yes"]));
-                if (status)
+                if ([status isEqualToNumber:[NSNumber numberWithInt:1]])
                 {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         // TEMP
