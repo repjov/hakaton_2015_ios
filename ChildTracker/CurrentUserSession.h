@@ -33,4 +33,6 @@ SINGLETON_DEF
 
 @property (strong, nonatomic) NSMutableDictionary *imageCache;
 
+@property (assign, nonatomic) BOOL stopStatus;
+
 @end

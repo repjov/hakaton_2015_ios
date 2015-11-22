@@ -68,7 +68,17 @@
                 {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         // TEMP
-                        [[NSNotificationCenter defaultCenter] postNotificationName:@"stopStatus" object:self];
+                        if (!([CurrentUserSession sharedInstance].stopStatus))
+                        {
+                            [[NSNotificationCenter defaultCenter] postNotificationName:@"stopStatus" object:self];
+                            [CurrentUserSession sharedInstance].stopStatus = YES;
+                        }
+                    });
+                }
+                else
+                {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [[NSNotificationCenter defaultCenter] postNotificationName:@"canPlayStatus" object:self];
                     });
                 }
             }
@@ -78,6 +88,7 @@
                     [[NSNotificationCenter defaultCenter] postNotificationName:@"canPlayStatus" object:self];
                 });
             }
+
             
         } error:^(NSString *localizedDescriptionText) {} cleanup:^{}];
     }

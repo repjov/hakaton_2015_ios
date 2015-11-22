@@ -55,6 +55,18 @@
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     [self cacheImages];
+//
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
+//                                             initWithBarButtonSystemItem:UIBarButtonSystemIte
+//                                             target:self action:@selector(back)];
+    
+    UIImage *image = [UIImage imageNamed:@"oval"];
+    
+    UIBarButtonItem *barBtnItem =
+        [[UIBarButtonItem alloc]initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(back)];
+                                   
+    self.navigationController.navigationItem.backBarButtonItem = barBtnItem;
+    self.navigationItem.backBarButtonItem = barBtnItem;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -176,8 +188,10 @@
             NSArray *responseArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
             //NSLog(@" ### getVideosForToken : <%@>", responseArray);
             
-            [CurrentUserSession sharedInstance].videosArray = responseArray;
-            strongSelf.videosArray = responseArray;
+            NSArray *responseArrayFiltered = [self filterArray:responseArray];
+            
+            [CurrentUserSession sharedInstance].videosArray = responseArrayFiltered;
+            strongSelf.videosArray = responseArrayFiltered;
             [strongSelf cacheImages];
             
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -186,6 +200,22 @@
             
         } error:^(NSString *localizedDescriptionText) {} cleanup:^{}];
     }
+}
+
+- (NSArray *)filterArray:(NSArray *)sourceArray
+{
+    NSMutableArray *newArray = [[NSMutableArray alloc] init];
+    
+    for (NSDictionary *videoDict in sourceArray)
+    {
+        NSNumber *active = (videoDict[@"active"]);
+        if ([active isEqualToNumber:[NSNumber numberWithInt:1]])
+        {
+            [newArray addObject:videoDict];
+        }
+    }
+    
+    return newArray;
 }
 
 - (IBAction)closePlayerButtonPressed:(id)sender
@@ -204,6 +234,12 @@
 {
     self.YTPlayerV.hidden = NO;
     self.closePlayerButton.hidden = NO;
+}
+
+- (void)back
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+    }];
 }
 
 #pragma UITableView - delegate methods

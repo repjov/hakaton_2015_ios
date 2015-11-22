@@ -7,6 +7,7 @@
 //
 
 #import "SleepVC.h"
+#import "CurrentUserSession.h"
 
 @interface SleepVC ()
 
@@ -17,7 +18,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(canPlayStatus:)
@@ -30,6 +30,7 @@
     //NSDictionary *theData = [note userInfo];
     
     [self dismissViewControllerAnimated:YES completion:^{}];
+    [CurrentUserSession sharedInstance].stopStatus = NO;
 }
 
 - (void)viewWillDisappear:(BOOL)animated

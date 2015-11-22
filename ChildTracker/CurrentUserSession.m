@@ -17,6 +17,7 @@ SINGLETON_IMP
     self = [super init];
     if (self) {
         self.imageCache = [[NSMutableDictionary alloc] init];
+        self.stopStatus = NO;
     }
     return self;
 }
