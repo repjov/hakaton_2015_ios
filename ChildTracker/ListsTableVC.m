@@ -27,6 +27,8 @@
     
     [self getLists];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -93,6 +95,8 @@
     
     UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:listDict[@"thumbnail"]]]];
     cell.image.image = image;
+    
+    cell.image.layer.cornerRadius = cell.image.frame.size.height / 16;
     
     //cell.videosArray = listDict[videosArray];
     

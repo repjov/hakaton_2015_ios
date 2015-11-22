@@ -92,6 +92,47 @@
     [NetworkRequestSender sendToEndpoint:endpoint body:body method:method success:successBlock error:errorBlock cleanup:cleanupBlock];
 }
 
++ (void)trackingWithToken:(NSString *)token
+                    method:(NSString *)method
+                    videoDict:(NSDictionary *)videoDict
+                    playTimeIncrement:(NSUInteger *)playTimeIncrement
+                   success:(void (^)(NSData *data))successBlock
+                     error:(void (^)(NSString *localizedDescriptionText))errorBlock
+                   cleanup:(void (^)())cleanupBlock
+
+{
+    NSAssert((token != nil), kAssertMessageFormat, __PRETTY_FUNCTION__, @"token");
+    NSAssert((videoDict != nil), kAssertMessageFormat, __PRETTY_FUNCTION__, @"videoDict");
+    
+    if (token == nil) return;
+    if (videoDict == nil) return;
+    
+    
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:videoDict
+                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
+                                                         error:&error];
+    
+    NSString *jsonString = nil;
+    
+    if (! jsonData) {
+        NSLog(@"Got an error: %@", error);
+        return;
+    } else {
+        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    }
+    
+    NSString *body = nil;
+    body = [NSString stringWithFormat: @"{\n \"now_watching\": %@, \"time\": \"%lu\"}", jsonString, (unsigned long)playTimeIncrement];
+    
+    NSString *endpoint = [NSString stringWithFormat:@"/%@/play/tracking", token];
+    
+    //{now_watching: utube_obj_1, time: 10}
+    
+    [NetworkRequestSender sendToEndpoint:endpoint body:body method:method success:successBlock error:errorBlock cleanup:cleanupBlock];
+}
+
+
 //+ (void)sendCode:(NSString *)code
 //             success:(void (^)(NSString *accessToken))successBlock
 //               error:(void (^)(NSString *localizedDescriptionText))errorBlock

@@ -51,6 +51,8 @@
     self.stopTimer = [[Timer alloc] init];
     self.stopTimer.isCheckStatusControl = YES;
     [self.stopTimer start];
+    
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -201,6 +203,7 @@
     UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
     cell.image.image = image;
     
+    cell.image.layer.cornerRadius = cell.image.frame.size.height / 16;
     
     //NSString *value = [self.SignalStimulateMatrix objectAtIndex:[indexPath row]];
     //[cell.textLabel setText:value];
@@ -231,14 +234,25 @@
     [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:YES];
 }
 
+- (void)sendVideoTrackingToBackend:(NSDictionary *)videoDict;
+{
+    NSString *token = [[CurrentUserSession sharedInstance] token];
+    if (token == nil) NSLog(@" ### !!! TORKEN NULL !!!");
+    
+    [NetworkManager trackingWithToken:token method:@"POST" videoDict:videoDict playTimeIncrement:0 success:^(NSData *data) {} error:^(NSString *localizedDescriptionText) {} cleanup:^{}];
+}
+
 - (void)playerViewDidBecomeReady:(YTPlayerView *)playerView
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"Playback started" object:self]; [self.YTPlayerV playVideo];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Playback started" object:self];
+    [self.YTPlayerV playVideo];
+    
+    [self sendVideoTrackingToBackend:self.currentVideo];
 }
 
 - (void)playerView:(YTPlayerView *)playerView didPlayTime:(float)playTime
 {
-    NSLog(@"Video: <%@>, playTime: %f", self.currentVideo[@"id"], playTime);
+    //NSLog(@"Video: <%@>, playTime: %f", self.currentVideo[@"id"], playTime);
 }
 
 @end

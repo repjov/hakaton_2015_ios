@@ -558,19 +558,7 @@
                             <constraint firstItem="hfy-gF-Bq3" firstAttribute="leading" secondItem="gxb-Nf-I89" secondAttribute="leading" id="zmi-5H-TNm"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="j1Q-Bp-98i">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="bhN-ge-1tT">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yOj-au-Bzy" userLabel="Next">
-                                <rect key="frame" x="233" y="7" width="71" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <animations/>
-                                <state key="normal" title="Next"/>
-                                <connections>
-                                    <segue destination="maW-SS-Duo" kind="show" id="Mwp-xI-gVK"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="j1Q-Bp-98i"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
@@ -775,6 +763,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2Fk-hM-ldK"/>
-        <segue reference="1eq-ih-apG"/>
     </inferredMetricsTieBreakers>
 </document>

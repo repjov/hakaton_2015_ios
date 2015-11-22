@@ -67,6 +67,7 @@
                 if (status)
                 {
                     dispatch_async(dispatch_get_main_queue(), ^{
+                        // TEMP
                         //[[NSNotificationCenter defaultCenter] postNotificationName:@"stopStatus" object:self];
                     });
                 }

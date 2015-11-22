@@ -35,4 +35,12 @@
                      error:(void (^)(NSString *localizedDescriptionText))errorBlock
                    cleanup:(void (^)())cleanupBlock;
 
++ (void)trackingWithToken:(NSString *)token
+          method:(NSString *)method
+       videoDict:(NSDictionary *)videoDict
+playTimeIncrement:(NSUInteger *)playTimeIncrement
+         success:(void (^)(NSData *data))successBlock
+           error:(void (^)(NSString *localizedDescriptionText))errorBlock
+         cleanup:(void (^)())cleanupBlock;
+
 @end
