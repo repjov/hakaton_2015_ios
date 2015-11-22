@@ -75,6 +75,8 @@
     [refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:refreshControl];
     self.myPullRefr = refreshControl;
+    
+    [self changeBackButton];
 }
 
 - (void)refreshTable
@@ -86,21 +88,40 @@
 {
     
     UIImage *image = [UIImage imageNamed:@"oval"];
+
     
     UIBarButtonItem *barBtnItem =
-    [[UIBarButtonItem alloc]initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(back)];
+    [[UIBarButtonItem alloc]initWithImage:image style:UIBarButtonItemStyleDone target:self action:@selector(back)];
     
-    self.navigationController.navigationItem.backBarButtonItem = barBtnItem;
-    self.navigationItem.backBarButtonItem = barBtnItem;
-    
+    //barBtnItem.tintColor = [UIColor whiteColor];
     
     
-    UIBarButtonItem *newBackButton =
-    [[UIBarButtonItem alloc] initWithTitle:@"NewTitle"
-                                     style:UIBarButtonItemStyleBordered
-                                    target:nil
-                                    action:@selector(back)];
-    [[self navigationItem] setBackBarButtonItem:newBackButton];
+    UIView *backButtonView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+    UIButton *back = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+    [back setImage:image forState:UIControlStateNormal];
+    
+    [back addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    [backButtonView addSubview:back];
+    UIBarButtonItem *zzz =  [[UIBarButtonItem alloc] initWithCustomView:backButtonView];
+    
+    
+    
+//    self.navigationController.navigationItem.backBarButtonItem = barBtnItem;
+//    self.navigationItem.backBarButtonItem = barBtnItem;
+    
+    
+//    
+//    UIBarButtonItem *newBackButton =
+//    [[UIBarButtonItem alloc] initWithTitle:@"NewTitle"
+//                                     style:UIBarButtonItemStyleBordered
+//                                    target:nil
+//                                    action:@selector(back)];
+//    [[self navigationItem] setBackBarButtonItem:newBackButton];
+    
+    //self.navigationItem.title = @"Видео";
+    
+    //self.navigationItem.rightBarButtonItems = @[];
+    self.navigationItem.leftBarButtonItem = zzz;
 }
 
 
@@ -117,8 +138,6 @@
     [super viewDidAppear:animated];
     
     [self startAutoplay];
-    
-    [self changeBackButton];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(stopStatus:)
@@ -264,8 +283,10 @@
 
 - (void)back
 {
-    [self dismissViewControllerAnimated:YES completion:^{
-    }];
+//    [self dismissViewControllerAnimated:YES completion:^{
+//    }];
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma UITableView - delegate methods

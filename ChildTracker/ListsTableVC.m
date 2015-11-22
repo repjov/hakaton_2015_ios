@@ -38,6 +38,8 @@
     [refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:refreshControl];
     self.myPullRefr = refreshControl;
+    
+    //self.navigationItem.title = @"Плейлисты";
 }
 
 - (void)viewDidAppear:(BOOL)animated

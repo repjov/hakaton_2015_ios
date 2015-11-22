@@ -46,6 +46,6 @@
 
 - (IBAction)saveTokenBTPress:(id)sender
 {
-    [StoreData saveToken:@"2e1a4d29-d2f6-4260-8489-bc1fd73df933"];
+    [StoreData saveToken:@"bcbc7869-efbf-4a6b-9fa4-eabcafda7f27"];
 }
 @end

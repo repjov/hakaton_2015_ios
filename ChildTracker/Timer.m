@@ -62,7 +62,7 @@
 //                                   ([status isEqualToString:@"yes"]) ||
 //                                   ([status isEqualToString:@"TRUE"]) ||
 //                                   ([status isEqualToString:@"true"]) ||
-//                  `                 ([status isEqualToString:@"1"]) ||
+//                                   ([status isEqualToString:@"1"]) ||
 //                                   ([status isEqualToString:@"Yes"]));
                 if ([status isEqualToNumber:[NSNumber numberWithInt:1]])
                 {
