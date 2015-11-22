@@ -230,19 +230,19 @@
                                     <action selector="closePlayerButtonPressed:" destination="maW-SS-Duo" eventType="touchUpInside" id="HLY-oo-bDX"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="111" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NpU-3G-pSO">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NpU-3G-pSO">
                                 <rect key="frame" x="0.0" y="244" width="320" height="324"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="previewCell" rowHeight="120" id="T6G-B2-Fae" customClass="PreviewTableViewCell">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="120"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="previewCell" rowHeight="150" id="T6G-B2-Fae" customClass="PreviewTableViewCell">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T6G-B2-Fae" id="J4p-le-d1a">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="149.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kuf-gN-Qvc">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kuf-gN-Qvc">
                                                     <rect key="frame" x="20" y="50" width="280" height="21"/>
                                                     <animations/>
                                                     <constraints>
@@ -254,7 +254,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dck-A0-sMa">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
+                                                    <rect key="frame" x="0.0" y="12" width="320" height="137.5"/>
                                                     <animations/>
                                                 </imageView>
                                             </subviews>
@@ -265,7 +265,7 @@
                                                 <constraint firstItem="Kuf-gN-Qvc" firstAttribute="centerX" secondItem="J4p-le-d1a" secondAttribute="centerXWithinMargins" id="hG5-3k-Vc5"/>
                                                 <constraint firstAttribute="bottom" secondItem="dck-A0-sMa" secondAttribute="bottom" id="hkS-KU-LgT"/>
                                                 <constraint firstItem="Kuf-gN-Qvc" firstAttribute="centerY" secondItem="J4p-le-d1a" secondAttribute="centerYWithinMargins" id="jQx-4Y-8QA"/>
-                                                <constraint firstItem="dck-A0-sMa" firstAttribute="top" secondItem="J4p-le-d1a" secondAttribute="top" id="zRc-s2-9bp"/>
+                                                <constraint firstItem="dck-A0-sMa" firstAttribute="top" secondItem="J4p-le-d1a" secondAttribute="top" constant="12" id="zRc-s2-9bp"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>

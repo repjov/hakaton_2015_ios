@@ -47,11 +47,6 @@
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(stopStatus:)
-                                                 name:@"stopStatus"
-                                               object:nil];
-    
 
     self.stopTimer = [[Timer alloc] init];
     self.stopTimer.isCheckStatusControl = YES;
@@ -61,6 +56,12 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(stopStatus:)
+                                                 name:@"stopStatus"
+                                               object:nil];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -68,6 +69,8 @@
     [super viewDidAppear:animated];
     
     [self startAutoplay];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)dealloc

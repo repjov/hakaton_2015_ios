@@ -57,14 +57,14 @@
             NSString *status = responseDictionary[@"the_end"];
             if (status != nil)
             {
-                BOOL needToStop = (
-                                   ([status isEqualToString:@"YES"]) ||
-                                   ([status isEqualToString:@"yes"]) ||
-                                   ([status isEqualToString:@"TRUE"]) ||
-                                   ([status isEqualToString:@"true"]) ||
-                                   ([status isEqualToString:@"1"]) ||
-                                   ([status isEqualToString:@"Yes"]));
-                if (needToStop)
+//                BOOL needToStop = (
+//                                   ([status isEqualToString:@"YES"]) ||
+//                                   ([status isEqualToString:@"yes"]) ||
+//                                   ([status isEqualToString:@"TRUE"]) ||
+//                                   ([status isEqualToString:@"true"]) ||
+//                                   ([status isEqualToString:@"1"]) ||
+//                                   ([status isEqualToString:@"Yes"]));
+                if (status)
                 {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [[NSNotificationCenter defaultCenter] postNotificationName:@"stopStatus" object:self];
