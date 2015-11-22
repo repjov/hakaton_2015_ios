@@ -15,6 +15,7 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *playListsLoc;
+@property (strong, nonatomic) UIRefreshControl *myPullRefr;
 
 
 @end
@@ -31,6 +32,17 @@
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     [self cacheImages];
+    
+    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc]init];
+    [refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:refreshControl];
+    self.myPullRefr = refreshControl;
+}
+
+- (void)refreshTable
+{
+    [self getLists];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -85,16 +97,36 @@
             NSArray *responseArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
             //NSLog(@" ### getListsForToken : <%@>", responseArray);
             
-            [CurrentUserSession sharedInstance].playLists = responseArray;
-            strongSelf.playListsLoc = responseArray;
+            NSArray *responseArrayFiltered = [self filterArray:responseArray];
+            
+            [CurrentUserSession sharedInstance].playLists = responseArrayFiltered;
+            strongSelf.playListsLoc = responseArrayFiltered;
             [strongSelf cacheImages];
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 [strongSelf.tableView reloadData];
             });
             
-        } error:^(NSString *localizedDescriptionText) {} cleanup:^{}];
+        } error:^(NSString *localizedDescriptionText) {} cleanup:^{
+            [self.myPullRefr endRefreshing];
+        }];
     }
+}
+
+- (NSArray *)filterArray:(NSArray *)sourceArray
+{
+    NSMutableArray *newArray = [[NSMutableArray alloc] init];
+    
+    for (NSDictionary *videoDict in sourceArray)
+    {
+        NSNumber *active = (videoDict[@"active"]);
+        if ([active isEqualToNumber:[NSNumber numberWithInt:1]])
+        {
+            [newArray addObject:videoDict];
+        }
+    }
+    
+    return newArray;
 }
 
 - (void)saveLists:(NSDictionary *)resonseDict
