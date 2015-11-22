@@ -29,6 +29,8 @@
     [self.codeTextField addTarget:self
                             action:@selector(textFieldDidChange:)
                   forControlEvents:UIControlEventEditingChanged];
+    
+    self.sendAuthCOdeButton.layer.cornerRadius = self.sendAuthCOdeButton.frame.size.height / 4;
 }
 
 - (void)viewWillAppear:(BOOL)animated

@@ -47,13 +47,18 @@
     if (kWorkWithBackend)
     {
         __weak __typeof(self)weakSelf = self;
-        [NetworkManager getListsForToken:token success:^(NSData *data) {
+        [NetworkManager getListsForToken:token method:@"GET" success:^(NSData *data) {
             __strong __typeof(self)strongSelf = weakSelf;
             
             NSError *parseError = nil;
-            NSArray *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
-            [CurrentUserSession sharedInstance].playLists = responseDictionary;
-            [strongSelf.tableView reloadData];
+            NSArray *responseArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
+            NSLog(@" ### getListsForToken : <%@>", responseArray);
+            
+            [CurrentUserSession sharedInstance].playLists = responseArray;
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [strongSelf.tableView reloadData];
+            });
             
         } error:^(NSString *localizedDescriptionText) {} cleanup:^{}];
     }
@@ -83,7 +88,12 @@
     }
     
     NSDictionary *listDict = [self.playListsLoc objectAtIndex:indexPath.row];
-
+    
+    cell.name.text = listDict[@"name"];
+    
+    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:listDict[@"image"]]]];
+    cell.image.image = image;
+    
     //cell.videosArray = listDict[videosArray];
     
     //NSString *value = [self.SignalStimulateMatrix objectAtIndex:[indexPath row]];

@@ -31,6 +31,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.videosArray = [[CurrentUserSession sharedInstance] videosArray];
+    self.listDict = [[CurrentUserSession sharedInstance] playListDict];
+    
     [self getVideos];
     self.YTPlayerV.backgroundColor = [UIColor clearColor];
     
@@ -47,9 +50,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    self.videosArray = [[CurrentUserSession sharedInstance] videosArray];
-    self.listDict = [[CurrentUserSession sharedInstance] playListDict];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -113,14 +113,19 @@
     {
         __weak __typeof(self)weakSelf = self;
         
-        [NetworkManager getVideosForToken:token listID:listID success:^(NSData *data)
+        [NetworkManager getVideosForToken:token listID:listID method:@"GET" success:^(NSData *data)
         {
             __strong __typeof(self)strongSelf = weakSelf;
                 
             NSError *parseError = nil;
-            NSArray *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
-            [CurrentUserSession sharedInstance].videosArray = responseDictionary;
-            [strongSelf.tableView reloadData];
+            NSArray *responseArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
+            NSLog(@" ### getVideosForToken : <%@>", responseArray);
+            
+            [CurrentUserSession sharedInstance].videosArray = responseArray;
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [strongSelf.tableView reloadData];
+            });
             
         } error:^(NSString *localizedDescriptionText) {} cleanup:^{}];
     }
@@ -164,6 +169,13 @@
     }
     
     NSDictionary *videoDict = [self.videosArray objectAtIndex:indexPath.row];
+    
+    cell.name.text = videoDict[@"title"];
+    
+    NSString *imageURL = ((videoDict[@"thumbnails"])[@"high"])[@"url"];
+    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
+    cell.image.image = image;
+    
     
     //NSString *value = [self.SignalStimulateMatrix objectAtIndex:[indexPath row]];
     //[cell.textLabel setText:value];

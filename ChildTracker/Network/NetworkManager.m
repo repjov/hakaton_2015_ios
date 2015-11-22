@@ -13,6 +13,7 @@
 @implementation NetworkManager
 
 + (void)registerUser:(NSString *)email
+              method:(NSString *)method
              success:(void (^)(NSData *data))successBlock
                error:(void (^)(NSString *localizedDescriptionText))errorBlock
              cleanup:(void (^)())cleanupBlock
@@ -23,12 +24,13 @@
     if (email == nil) return;
     
     NSString *body;
-    body = [NSString stringWithFormat: @"{\n \"email\": \"%@\"}", email];
+    body = [NSString stringWithFormat: @"{\"email\": \"%@\"}", email];
     
-    [NetworkRequestSender sendToEndpoint:kRegisterEnpoint body:body success:successBlock error:errorBlock cleanup:cleanupBlock];
+    [NetworkRequestSender sendToEndpoint:kRegisterEnpoint body:body method:method success:successBlock error:errorBlock cleanup:cleanupBlock];
 }
 
 + (void)getListsForToken:(NSString *)token
+              method:(NSString *)method
          success:(void (^)(NSData *data))successBlock
            error:(void (^)(NSString *localizedDescriptionText))errorBlock
          cleanup:(void (^)())cleanupBlock
@@ -38,34 +40,36 @@
     
     if (token == nil) return;
     
-    NSString *body;
-    body = [NSString stringWithFormat: @"{}"];
+    NSString *body = nil;
+    //body = [NSString stringWithFormat: @"[{\"id\":1448149362122,\"name\":\"Новая подборка\",\"active\":true},{\"id\":1448152392672,\"name\":\"Новая подборка\",\"active\":true},{\"id\":1448152461525,\"name\":\"Новая подборка\",\"active\":true},{\"id\":1448152536197,\"name\":\"Новая подборка\",\"active\":true},{\"id\":1448152576352,\"name\":\"Новая подборка\",\"active\":true},{\"id\":1448152623228,\"name\":\"Новая подборка\",\"active\":true}]"];
     
     NSString *endpoint = [NSString stringWithFormat:@"/%@/lists", token];
     
-    [NetworkRequestSender sendToEndpoint:endpoint body:body success:successBlock error:errorBlock cleanup:cleanupBlock];
+    [NetworkRequestSender sendToEndpoint:endpoint body:body method:method success:successBlock error:errorBlock cleanup:cleanupBlock];
 }
 
 + (void)getVideosForToken:(NSString *)token
                   listID:(NSString *)listID
+              method:(NSString *)method
                  success:(void (^)(NSData *data))successBlock
                    error:(void (^)(NSString *localizedDescriptionText))errorBlock
                  cleanup:(void (^)())cleanupBlock
 
 {
-    NSAssert((listID != nil), kAssertMessageFormat, __PRETTY_FUNCTION__, @"email");
+    NSAssert((listID != nil), kAssertMessageFormat, __PRETTY_FUNCTION__, @"listID");
     
     if (listID == nil) return;
     
-    NSString *body;
-    body = [NSString stringWithFormat: @"{}"];
+    NSString *body = nil;
+    //body = [NSString stringWithFormat: @"{}"];
     
     NSString *endpoint = [NSString stringWithFormat:@"/%@/lists/%@", token, listID];
     
-    [NetworkRequestSender sendToEndpoint:endpoint body:body success:successBlock error:errorBlock cleanup:cleanupBlock];
+    [NetworkRequestSender sendToEndpoint:endpoint body:body method:method success:successBlock error:errorBlock cleanup:cleanupBlock];
 }
 
 + (void)getControlForToken:(NSString *)token
+              method:(NSString *)method
                   success:(void (^)(NSData *data))successBlock
                     error:(void (^)(NSString *localizedDescriptionText))errorBlock
                   cleanup:(void (^)())cleanupBlock
@@ -75,12 +79,12 @@
     
     if (token == nil) return;
     
-    NSString *body;
-    body = [NSString stringWithFormat: @"{}"];
+    NSString *body = nil;
+    //body = [NSString stringWithFormat: @"{}"];
     
     NSString *endpoint = [NSString stringWithFormat:@"/%@/play/control", token];
     
-    [NetworkRequestSender sendToEndpoint:endpoint body:body success:successBlock error:errorBlock cleanup:cleanupBlock];
+    [NetworkRequestSender sendToEndpoint:endpoint body:body method:method success:successBlock error:errorBlock cleanup:cleanupBlock];
 }
 
 //+ (void)sendCode:(NSString *)code

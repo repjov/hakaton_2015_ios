@@ -20,7 +20,10 @@ SINGLETON_DEF
 @property (strong, nonatomic) NSString *email;
 
 @property (strong, nonatomic) NSArray *playLists;
+@property (strong, nonatomic) NSDictionary *playListsImages;
 @property (strong, nonatomic) NSArray *videosArray;
+@property (strong, nonatomic) NSDictionary *videosArrayImages;
+
 @property (strong, nonatomic) NSDictionary *playListDict;
 @property (strong, nonatomic) NSDictionary *videoDict;
 

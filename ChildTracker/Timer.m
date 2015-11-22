@@ -48,17 +48,21 @@
     {
         NSString *token = [[CurrentUserSession sharedInstance] token];
         
-        [NetworkManager  getControlForToken:token success:^(NSData *data) {
+        [NetworkManager  getControlForToken:token method:@"GET" success:^(NSData *data) {
             
             NSError *parseError = nil;
             NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
+            NSLog(@" ### getControlForToken : <%@>", responseDictionary);
+            
             NSString *status = responseDictionary[@"the_end"];
             if (status != nil)
             {
                 BOOL needToStop = (([status isEqualToString:@"YES"]) || ([status isEqualToString:@"yes"]) || ([status isEqualToString:@"Yes"]));
                 if (needToStop)
                 {
-                    [[NSNotificationCenter defaultCenter] postNotificationName:@"stopStatus" object:self];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [[NSNotificationCenter defaultCenter] postNotificationName:@"stopStatus" object:self];
+                    });
                 }
             }
             

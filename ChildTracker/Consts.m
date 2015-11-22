@@ -18,12 +18,12 @@ BOOL const kNetworkLogging = YES;
 //BOOL const kSocketLogging = YES;
 //BOOL const kSocketDetailedLogging = YES;
 //BOOL const kUserDebbugData = YES;
-BOOL const kWorkWithBackend = NO;
+BOOL const kWorkWithBackend = YES;
 //BOOL const kCodeAuthentification = NO;
 
 #pragma mark - Server
 
-NSString *const kServerURL = @"http://api.instasound.com";
+NSString *const kServerURL = @"http://api.childtracker.co";
 //NSString *const kServerHost = @"http://dev.instasound.com";
 
 #pragma mark - Server Endpoints

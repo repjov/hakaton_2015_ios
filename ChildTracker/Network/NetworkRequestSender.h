@@ -14,6 +14,7 @@
 
 + (void)sendToEndpoint:(NSString *)endpoint
                   body:(NSString *)body
+                method:(NSString *)method
                success:(void (^)(NSData *data))successBlock
                  error:(void (^)(NSString *localizedDescriptionText))error
                cleanup:(void (^)())cleanup;

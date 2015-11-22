@@ -13,4 +13,7 @@
 @property (strong, nonatomic) NSDictionary *listDict;
 @property (strong, nonatomic) NSDictionary *videoDict;
 
+@property (strong, nonatomic) IBOutlet UILabel *name;
+@property (strong, nonatomic) IBOutlet UIImageView *image;
+
 @end

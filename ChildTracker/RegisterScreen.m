@@ -20,6 +20,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *emailTextField;
 @property (strong, nonatomic) IBOutlet UIButton *registerButton;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) IBOutlet UILabel *errorOutput;
 
 //@property (strong, nonatomic) IBOutlet Timer *myTimer;
 
@@ -38,15 +39,13 @@
                   action:@selector(textFieldDidChange:)
         forControlEvents:UIControlEventEditingChanged];
     
-    if ([StoreData isHaveTokenAlready])
-    {
-        NSString *token = [StoreData loadToken];
-        [[CurrentUserSession sharedInstance] startSessionWithToken:token];
-        [self goListsScreen];
-    }
+    self.registerButton.layer.cornerRadius = self.registerButton.frame.size.height / 4;
     
 //    self.myTimer = [[Timer alloc] init];
 //    [self.myTimer start];
+    
+    /////////[StoreData deleteSavedToken];
+    ////////[StoreData saveToken:@"2e1a4d29-d2f6-4260-8489-bc1fd73df933"];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -56,6 +55,13 @@
     [self disableButton];
     
     [self.emailTextField becomeFirstResponder];
+    
+    if ([StoreData isHaveTokenAlready])
+    {
+        NSString *token = [StoreData loadToken];
+        [[CurrentUserSession sharedInstance] startSessionWithToken:token];
+        [self goListsScreen];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,6 +71,11 @@
 
 - (IBAction)registerButtonPress:(id)sender
 {
+    // mail: egf
+    //    token = "1e9d0c81-b286-45ea-ae06-b09828177eb5";
+    
+    self.errorOutput.text = @"";
+    
     NSString *userEmail = self.emailTextField.text;
     if ([NSString isNilOrEmpty:userEmail]) return;
     
@@ -74,28 +85,40 @@
     if (kWorkWithBackend)
     {
         __weak __typeof(self)weakSelf = self;
-        [NetworkManager registerUser:userEmail success:^(NSData *data) {
+        [NetworkManager registerUser:userEmail method:@"POST" success:^(NSData *data) {
             __strong __typeof(self)strongSelf = weakSelf;
             
             NSError *parseError = nil;
             NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
+            //NSArray *responseA = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
+            NSLog(@" ### registerUser : <%@>", responseDictionary);
+            
             NSString *token = responseDictionary[@"token"];
             if (token)
             {
                 [StoreData saveToken:token];
                 [[CurrentUserSession sharedInstance] startSessionWithToken:token];
                 //[strongSelf getLists];
-                [strongSelf goListsScreen];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [strongSelf goListsScreen];
+                });
             }
             else
             {
                 NSLog(@" ### Error Token Parse");
             }
         } error:^(NSString *localizedDescriptionText) {
+            __strong __typeof(self)strongSelf = weakSelf;
             NSLog(@" ### Error on Registration: <%@>", localizedDescriptionText);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                strongSelf.errorOutput.text = localizedDescriptionText;
+            });
+            
         } cleanup:^{
             __strong __typeof(self)strongSelf = weakSelf;
-            [strongSelf enableLoginControls:indictaor];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [strongSelf enableLoginControls:indictaor];
+            });
         }];
     }
     else

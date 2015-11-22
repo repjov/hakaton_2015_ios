@@ -15,18 +15,20 @@
 
 + (void)sendToEndpoint:(NSString *)endpoint
                   body:(NSString *)body
+                method:(NSString *)method
                success:(void (^)(NSData *data))successBlock
                  error:(void (^)(NSString *localizedDescriptionText))errorBlock
                cleanup:(void (^)())cleanupBlock
 {
     NSAssert((![NSString isNilOrEmpty:endpoint]), kAssertMessageFormat, __PRETTY_FUNCTION__, @"endpoint");
-    NSAssert((![NSString isNilOrEmpty:body]), kAssertMessageFormat, __PRETTY_FUNCTION__, @"body");
+    //NSAssert((![NSString isNilOrEmpty:body]), kAssertMessageFormat, __PRETTY_FUNCTION__, @"body");
     
     if ([NSString isNilOrEmpty:endpoint]) return;
-    if ([NSString isNilOrEmpty:body]) return;
+    //if ([NSString isNilOrEmpty:body]) return;
     
     NSString *fullURLAsString = [NSString stringWithFormat:@"%@%@", kServerURL, endpoint];
     NSMutableURLRequest *request = [NetworkRequestSender mutableURLRequestWithURL:fullURLAsString body:body];
+    request.HTTPMethod = method;
 
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *task;
@@ -63,6 +65,8 @@
             NSInteger HTTPstatusCode = [(NSHTTPURLResponse *)response statusCode];
             
             NSError *parseError = nil;
+            NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
+            NSArray *responseA = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
             //NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
             //if (kNetworkLogging) NSLog(@"%@", responseDictionary);
             
@@ -82,6 +86,8 @@
             }
             else
             {
+                if (errorBlock) errorBlock(responseData);
+                
 //                if (!parseError)
 //                {
 //                    // Got unsuccess asnwer from server
