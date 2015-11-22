@@ -40,6 +40,31 @@
     self.myPullRefr = refreshControl;
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(stopStatus:)
+                                                 name:@"stopStatus"
+                                               object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)stopStatus:(NSNotification *)note
+{
+    //NSDictionary *theData = [note userInfo];
+    //[self closePlayerButtonPressed:nil];
+    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *vc = (UIViewController *)[sb instantiateViewControllerWithIdentifier:@"sleepScreenID"];
+    [self.navigationController presentModalViewController:vc animated:YES];
+}
+
 - (void)refreshTable
 {
     [self getLists];

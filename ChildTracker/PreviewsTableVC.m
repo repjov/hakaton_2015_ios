@@ -26,6 +26,8 @@
 
 @property (strong, nonatomic) Timer *stopTimer;
 
+@property (strong, nonatomic) UIRefreshControl *myPullRefr;
+
 - (IBAction)closePlayerButtonPressed:(id)sender;
 
 @end
@@ -59,24 +61,54 @@
 //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
 //                                             initWithBarButtonSystemItem:UIBarButtonSystemIte
 //                                             target:self action:@selector(back)];
+
+    
+    
+//    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+//    // Configure Refresh Control
+//    [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+//    // Configure View Controller
+//    [self setRefreshControl:refreshControl];
+    
+    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc]init];
+    [refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:refreshControl];
+    self.myPullRefr = refreshControl;
+}
+
+- (void)refreshTable
+{
+    [self getVideos];
+}
+
+- (void)changeBackButton
+{
     
     UIImage *image = [UIImage imageNamed:@"oval"];
     
     UIBarButtonItem *barBtnItem =
-        [[UIBarButtonItem alloc]initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(back)];
-                                   
+    [[UIBarButtonItem alloc]initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(back)];
+    
     self.navigationController.navigationItem.backBarButtonItem = barBtnItem;
     self.navigationItem.backBarButtonItem = barBtnItem;
+    
+    
+    
+    UIBarButtonItem *newBackButton =
+    [[UIBarButtonItem alloc] initWithTitle:@"NewTitle"
+                                     style:UIBarButtonItemStyleBordered
+                                    target:nil
+                                    action:@selector(back)];
+    [[self navigationItem] setBackBarButtonItem:newBackButton];
 }
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(stopStatus:)
-                                                 name:@"stopStatus"
-                                               object:nil];
+
     
 }
 
@@ -85,6 +117,13 @@
     [super viewDidAppear:animated];
     
     [self startAutoplay];
+    
+    [self changeBackButton];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(stopStatus:)
+                                                 name:@"stopStatus"
+                                               object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -188,7 +227,8 @@
             NSArray *responseArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
             //NSLog(@" ### getVideosForToken : <%@>", responseArray);
             
-            NSArray *responseArrayFiltered = [self filterArray:responseArray];
+            //NSArray *responseArrayFiltered = [self filterArray:responseArray];
+            NSArray *responseArrayFiltered = responseArray;
             
             [CurrentUserSession sharedInstance].videosArray = responseArrayFiltered;
             strongSelf.videosArray = responseArrayFiltered;
@@ -198,24 +238,10 @@
                 [strongSelf.tableView reloadData];
             });
             
-        } error:^(NSString *localizedDescriptionText) {} cleanup:^{}];
+        } error:^(NSString *localizedDescriptionText) {} cleanup:^{
+            [self.myPullRefr endRefreshing];
+        }];
     }
-}
-
-- (NSArray *)filterArray:(NSArray *)sourceArray
-{
-    NSMutableArray *newArray = [[NSMutableArray alloc] init];
-    
-    for (NSDictionary *videoDict in sourceArray)
-    {
-        NSNumber *active = (videoDict[@"active"]);
-        if ([active isEqualToNumber:[NSNumber numberWithInt:1]])
-        {
-            [newArray addObject:videoDict];
-        }
-    }
-    
-    return newArray;
 }
 
 - (IBAction)closePlayerButtonPressed:(id)sender
