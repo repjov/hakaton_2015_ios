@@ -51,6 +51,11 @@
                                              selector:@selector(stopStatus:)
                                                  name:@"stopStatus"
                                                object:nil];
+    
+
+    self.stopTimer = [[Timer alloc] init];
+    self.stopTimer.isCheckStatusControl = YES;
+    [self.stopTimer start];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -63,6 +68,12 @@
     [super viewDidAppear:animated];
     
     [self startAutoplay];
+}
+
+- (void)dealloc
+{
+    [self.stopTimer stop];
+    self.stopTimer = nil;
 }
 
 - (void)didReceiveMemoryWarning {
