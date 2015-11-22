@@ -69,7 +69,10 @@
     [super viewDidAppear:animated];
     
     [self startAutoplay];
-    
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 

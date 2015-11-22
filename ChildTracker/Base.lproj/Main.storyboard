@@ -230,16 +230,16 @@
                                     <action selector="closePlayerButtonPressed:" destination="maW-SS-Duo" eventType="touchUpInside" id="HLY-oo-bDX"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NpU-3G-pSO">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="170" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NpU-3G-pSO">
                                 <rect key="frame" x="0.0" y="244" width="320" height="324"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="previewCell" rowHeight="150" id="T6G-B2-Fae" customClass="PreviewTableViewCell">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="150"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="previewCell" rowHeight="170" id="T6G-B2-Fae" customClass="PreviewTableViewCell">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="170"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T6G-B2-Fae" id="J4p-le-d1a">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="149.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="169.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kuf-gN-Qvc">
@@ -253,17 +253,17 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dck-A0-sMa">
-                                                    <rect key="frame" x="0.0" y="12" width="320" height="137.5"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dck-A0-sMa">
+                                                    <rect key="frame" x="4" y="12" width="312" height="153"/>
                                                     <animations/>
                                                 </imageView>
                                             </subviews>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstItem="dck-A0-sMa" firstAttribute="leading" secondItem="J4p-le-d1a" secondAttribute="leading" id="f10-wU-RuB"/>
-                                                <constraint firstAttribute="trailing" secondItem="dck-A0-sMa" secondAttribute="trailing" id="gtE-HA-3ry"/>
+                                                <constraint firstItem="dck-A0-sMa" firstAttribute="leading" secondItem="J4p-le-d1a" secondAttribute="leading" constant="4" id="f10-wU-RuB"/>
+                                                <constraint firstAttribute="trailing" secondItem="dck-A0-sMa" secondAttribute="trailing" constant="4" id="gtE-HA-3ry"/>
                                                 <constraint firstItem="Kuf-gN-Qvc" firstAttribute="centerX" secondItem="J4p-le-d1a" secondAttribute="centerXWithinMargins" id="hG5-3k-Vc5"/>
-                                                <constraint firstAttribute="bottom" secondItem="dck-A0-sMa" secondAttribute="bottom" id="hkS-KU-LgT"/>
+                                                <constraint firstAttribute="bottom" secondItem="dck-A0-sMa" secondAttribute="bottom" constant="4" id="hkS-KU-LgT"/>
                                                 <constraint firstItem="Kuf-gN-Qvc" firstAttribute="centerY" secondItem="J4p-le-d1a" secondAttribute="centerYWithinMargins" id="jQx-4Y-8QA"/>
                                                 <constraint firstItem="dck-A0-sMa" firstAttribute="top" secondItem="J4p-le-d1a" secondAttribute="top" constant="12" id="zRc-s2-9bp"/>
                                             </constraints>
@@ -498,19 +498,19 @@
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="111" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hfy-gF-Bq3">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="170" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hfy-gF-Bq3">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="previewCell" rowHeight="120" id="Vdy-qX-mlc" customClass="PreviewTableViewCell">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="120"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="previewCell" rowHeight="170" id="Vdy-qX-mlc" customClass="PreviewTableViewCell">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="170"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vdy-qX-mlc" id="JZm-BT-bSe">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="169.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yb1-ZS-xaX" userLabel="itemName">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yb1-ZS-xaX" userLabel="itemName">
                                                     <rect key="frame" x="20" y="50" width="280" height="21"/>
                                                     <animations/>
                                                     <constraints>
@@ -521,19 +521,19 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Y0d-fX-TNy">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Y0d-fX-TNy">
+                                                    <rect key="frame" x="4" y="12" width="312" height="153.5"/>
                                                     <animations/>
                                                 </imageView>
                                             </subviews>
                                             <animations/>
                                             <constraints>
                                                 <constraint firstItem="yb1-ZS-xaX" firstAttribute="centerY" secondItem="JZm-BT-bSe" secondAttribute="centerYWithinMargins" id="7Dj-nG-Ajn"/>
-                                                <constraint firstAttribute="bottom" secondItem="Y0d-fX-TNy" secondAttribute="bottom" id="7uM-1y-fVr"/>
-                                                <constraint firstAttribute="trailing" secondItem="Y0d-fX-TNy" secondAttribute="trailing" id="OmX-vk-XUc"/>
-                                                <constraint firstItem="Y0d-fX-TNy" firstAttribute="top" secondItem="JZm-BT-bSe" secondAttribute="top" id="QIy-aT-89c"/>
+                                                <constraint firstAttribute="bottom" secondItem="Y0d-fX-TNy" secondAttribute="bottom" constant="4" id="7uM-1y-fVr"/>
+                                                <constraint firstAttribute="trailing" secondItem="Y0d-fX-TNy" secondAttribute="trailing" constant="4" id="OmX-vk-XUc"/>
+                                                <constraint firstItem="Y0d-fX-TNy" firstAttribute="top" secondItem="JZm-BT-bSe" secondAttribute="top" constant="12" id="QIy-aT-89c"/>
                                                 <constraint firstItem="yb1-ZS-xaX" firstAttribute="centerX" secondItem="JZm-BT-bSe" secondAttribute="centerXWithinMargins" id="eER-gH-5Ie"/>
-                                                <constraint firstItem="Y0d-fX-TNy" firstAttribute="leading" secondItem="JZm-BT-bSe" secondAttribute="leading" id="gQF-Rk-p8U"/>
+                                                <constraint firstItem="Y0d-fX-TNy" firstAttribute="leading" secondItem="JZm-BT-bSe" secondAttribute="leading" constant="4" id="gQF-Rk-p8U"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
