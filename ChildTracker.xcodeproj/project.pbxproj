@@ -14,6 +14,7 @@
 		D78E5D591C00B6DA00B24531 /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = D78E5D581C00B6DA00B24531 /* Timer.m */; };
 		D78E5D5C1C00CF7300B24531 /* ListsTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D78E5D5B1C00CF7300B24531 /* ListsTableVC.m */; };
 		D78E5D5F1C01162300B24531 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D78E5D5E1C01162300B24531 /* Assets.xcassets */; };
+		D78E5D621C01C26B00B24531 /* SleepVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D78E5D611C01C26B00B24531 /* SleepVC.m */; };
 		D7DB63661C00677100381E51 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DB63651C00677100381E51 /* main.m */; };
 		D7DB63691C00677100381E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DB63681C00677100381E51 /* AppDelegate.m */; };
 		D7DB636C1C00677100381E51 /* RegisterScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DB636B1C00677100381E51 /* RegisterScreen.m */; };
@@ -46,6 +47,8 @@
 		D78E5D5A1C00CF7300B24531 /* ListsTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListsTableVC.h; sourceTree = "<group>"; };
 		D78E5D5B1C00CF7300B24531 /* ListsTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListsTableVC.m; sourceTree = "<group>"; };
 		D78E5D5E1C01162300B24531 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D78E5D601C01C26B00B24531 /* SleepVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepVC.h; sourceTree = "<group>"; };
+		D78E5D611C01C26B00B24531 /* SleepVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepVC.m; sourceTree = "<group>"; };
 		D7DB63611C00677100381E51 /* ChildTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChildTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7DB63651C00677100381E51 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D7DB63671C00677100381E51 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -189,6 +192,7 @@
 		D7DB63891C00725900381E51 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D75784771C008AE40003F185 /* PreviewCell */,
 				D7DB636A1C00677100381E51 /* RegisterScreen.h */,
 				D7DB636B1C00677100381E51 /* RegisterScreen.m */,
 				D75784711C008A010003F185 /* CodeInputScreen.h */,
@@ -197,7 +201,8 @@
 				D78E5D5B1C00CF7300B24531 /* ListsTableVC.m */,
 				D75784741C008A330003F185 /* PreviewsTableVC.h */,
 				D75784751C008A330003F185 /* PreviewsTableVC.m */,
-				D75784771C008AE40003F185 /* PreviewCell */,
+				D78E5D601C01C26B00B24531 /* SleepVC.h */,
+				D78E5D611C01C26B00B24531 /* SleepVC.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -364,6 +369,7 @@
 				D7DB63921C00739700381E51 /* NSString+Extensions.m in Sources */,
 				D7DB63871C006D7300381E51 /* NetworkRequestSender.m in Sources */,
 				D7DB63861C006D7300381E51 /* NetworkManager.m in Sources */,
+				D78E5D621C01C26B00B24531 /* SleepVC.m in Sources */,
 				D75784731C008A010003F185 /* CodeInputScreen.m in Sources */,
 				D7DB636C1C00677100381E51 /* RegisterScreen.m in Sources */,
 				D7DB638C1C00730600381E51 /* Consts.m in Sources */,

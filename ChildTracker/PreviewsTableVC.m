@@ -11,8 +11,9 @@
 #import "CurrentUserSession.h"
 #import "PreviewTableViewCell.h"
 #import "NetworkManager.h"
+#import "Timer.h"
 
-@interface PreviewsTableVC () <UITableViewDataSource, UITableViewDelegate>
+@interface PreviewsTableVC () <UITableViewDataSource, UITableViewDelegate, YTPlayerViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet YTPlayerView *YTPlayerV;
@@ -20,6 +21,10 @@
 
 @property (strong, nonatomic) NSDictionary *listDict;
 @property (strong, nonatomic) NSArray *videosArray;
+
+@property (strong, nonatomic) NSDictionary *currentVideo;
+
+@property (strong, nonatomic) Timer *stopTimer;
 
 - (IBAction)closePlayerButtonPressed:(id)sender;
 
@@ -31,6 +36,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.YTPlayerV.delegate = self;
     self.videosArray = [[CurrentUserSession sharedInstance] videosArray];
     self.listDict = [[CurrentUserSession sharedInstance] playListDict];
     
@@ -79,6 +85,8 @@
     NSDictionary * firstVideoDic = [self.videosArray firstObject];
     NSString *firstVidID = firstVideoDic[@"id"];
     
+    self.currentVideo = firstVideoDic;
+    
     [self playVideWithID:firstVidID];
 }
 
@@ -119,7 +127,7 @@
                 
             NSError *parseError = nil;
             NSArray *responseArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
-            NSLog(@" ### getVideosForToken : <%@>", responseArray);
+            //NSLog(@" ### getVideosForToken : <%@>", responseArray);
             
             [CurrentUserSession sharedInstance].videosArray = responseArray;
             
@@ -194,6 +202,7 @@
         NSString *videoID = videoDict[@"id"];
         if (videoID != nil)
         {
+            self.currentVideo = videoDict;
             [self playVideWithID:videoID];
         }
     }
@@ -203,6 +212,16 @@
     }
     
     [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:YES];
+}
+
+- (void)playerViewDidBecomeReady:(YTPlayerView *)playerView
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Playback started" object:self]; [self.YTPlayerV playVideo];
+}
+
+- (void)playerView:(YTPlayerView *)playerView didPlayTime:(float)playTime
+{
+    NSLog(@"Video: <%@>, playTime: %f", self.currentVideo[@"id"], playTime);
 }
 
 @end

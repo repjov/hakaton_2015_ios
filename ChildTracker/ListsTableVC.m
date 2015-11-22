@@ -52,7 +52,7 @@
             
             NSError *parseError = nil;
             NSArray *responseArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
-            NSLog(@" ### getListsForToken : <%@>", responseArray);
+            //NSLog(@" ### getListsForToken : <%@>", responseArray);
             
             [CurrentUserSession sharedInstance].playLists = responseArray;
             

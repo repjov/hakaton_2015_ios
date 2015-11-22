@@ -57,13 +57,25 @@
             NSString *status = responseDictionary[@"the_end"];
             if (status != nil)
             {
-                BOOL needToStop = (([status isEqualToString:@"YES"]) || ([status isEqualToString:@"yes"]) || ([status isEqualToString:@"Yes"]));
+                BOOL needToStop = (
+                                   ([status isEqualToString:@"YES"]) ||
+                                   ([status isEqualToString:@"yes"]) ||
+                                   ([status isEqualToString:@"TRUE"]) ||
+                                   ([status isEqualToString:@"true"]) ||
+                                   ([status isEqualToString:@"1"]) ||
+                                   ([status isEqualToString:@"Yes"]));
                 if (needToStop)
                 {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [[NSNotificationCenter defaultCenter] postNotificationName:@"stopStatus" object:self];
                     });
                 }
+            }
+            else
+            {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"canPlayStatus" object:self];
+                });
             }
             
         } error:^(NSString *localizedDescriptionText) {} cleanup:^{}];

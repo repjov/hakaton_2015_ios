@@ -60,6 +60,7 @@
             if (kNetworkLogging) NSLog(@"Response HTTP Status code: %ld\n", (long)[(NSHTTPURLResponse *)response statusCode]);
             //if (kNetworkLogging) NSLog(@"Response HTTP Headers:\n%@\n", [(NSHTTPURLResponse *)response allHeaderFields]);
             NSString *responseData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            
             if (kNetworkLogging) NSLog(@"Response Body:\n%@\n", responseData);
             
             NSInteger HTTPstatusCode = [(NSHTTPURLResponse *)response statusCode];

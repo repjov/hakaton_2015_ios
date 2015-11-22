@@ -324,7 +324,7 @@
         <!--sleepScreen-->
         <scene sceneID="VYg-nJ-EYY">
             <objects>
-                <viewController storyboardIdentifier="sleepScreenID" id="Wwq-Ib-i8N" userLabel="sleepScreen" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sleepScreenID" id="Wwq-Ib-i8N" userLabel="sleepScreen" customClass="SleepVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zAe-x9-6TR"/>
                         <viewControllerLayoutGuide type="bottom" id="mAD-Ee-ZfQ"/>
