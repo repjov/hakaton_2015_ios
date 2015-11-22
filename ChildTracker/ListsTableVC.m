@@ -29,11 +29,40 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
+    [self cacheImages];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (void)cacheImages
+{
+    for (NSDictionary *listDict in self.playListsLoc)
+    {
+        NSString *urlString = listDict[@"thumbnail"];
+        CurrentUserSession *current = [CurrentUserSession sharedInstance];
+        //UIImage *image = nil;
+        if ([current isHaveImageForURL:urlString])
+        {
+            //image = [current imageForURL:urlString];
+        }
+        else
+        {
+            __weak __typeof(self)weakSelf = self;
+            dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+                UIImage *image2 = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]]];
+                [current addImage:image2 forURL:urlString];
+                dispatch_async(dispatch_get_main_queue(), ^(void){
+                    __strong __typeof(self)strongSelf = weakSelf;
+                    [strongSelf.tableView reloadData];
+                });
+            });
+        }
+    }
 }
 
 - (void)playVideWithID:(NSString *)videYTID
@@ -57,6 +86,8 @@
             //NSLog(@" ### getListsForToken : <%@>", responseArray);
             
             [CurrentUserSession sharedInstance].playLists = responseArray;
+            strongSelf.playListsLoc = responseArray;
+            [strongSelf cacheImages];
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 [strongSelf.tableView reloadData];
@@ -93,13 +124,23 @@
     
     cell.name.text = listDict[@"name"];
     
-    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:listDict[@"thumbnail"]]]];
-    cell.image.image = image;
+    NSString *urlString = listDict[@"thumbnail"];
+    CurrentUserSession *current = [CurrentUserSession sharedInstance];
+    UIImage *image = nil;
+    if ([current isHaveImageForURL:urlString])
+    {
+        image = [current imageForURL:urlString];
+    }
+    else
+    {
+        //image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]]];
+        //[current addImage:image forURL:urlString];
+    }
     
+    cell.image.image = image;
     cell.image.layer.cornerRadius = cell.image.frame.size.height / 16;
     
     //cell.videosArray = listDict[videosArray];
-    
     //NSString *value = [self.SignalStimulateMatrix objectAtIndex:[indexPath row]];
     //[cell.textLabel setText:value];
     

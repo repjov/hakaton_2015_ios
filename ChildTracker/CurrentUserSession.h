@@ -6,7 +6,7 @@
 //  Copyright © 2015 Lodossteam. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "Consts.h"
 
 @interface CurrentUserSession : NSObject
@@ -15,6 +15,10 @@ SINGLETON_DEF
 
 - (void)startSessionWithToken:(NSString *)token;
 - (void)resetSession;
+
+- (BOOL)isHaveImageForURL:(NSString *)url;
+- (UIImage *)imageForURL:(NSString *)url;
+- (void)addImage:(UIImage *)image forURL:(NSString *)url;
 
 @property (strong, nonatomic) NSString *token;
 @property (strong, nonatomic) NSString *email;
@@ -26,5 +30,7 @@ SINGLETON_DEF
 
 @property (strong, nonatomic) NSDictionary *playListDict;
 @property (strong, nonatomic) NSDictionary *videoDict;
+
+@property (strong, nonatomic) NSMutableDictionary *imageCache;
 
 @end

@@ -53,6 +53,8 @@
     [self.stopTimer start];
     
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
+    [self cacheImages];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -87,6 +89,32 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)cacheImages
+{
+    for (NSDictionary *videoDict in self.videosArray)
+    {
+        NSString *urlString = ((videoDict[@"thumbnails"])[@"high"])[@"url"];
+        CurrentUserSession *current = [CurrentUserSession sharedInstance];
+        //UIImage *image = nil;
+        if ([current isHaveImageForURL:urlString])
+        {
+            //image = [current imageForURL:urlString];
+        }
+        else
+        {
+            __weak __typeof(self)weakSelf = self;
+            dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+                UIImage *image2 = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]]];
+                [current addImage:image2 forURL:urlString];
+                dispatch_async(dispatch_get_main_queue(), ^(void){
+                     __strong __typeof(self)strongSelf = weakSelf;
+                    [strongSelf.tableView reloadData];
+                });
+            });
+        }
+    }
 }
 
 - (void)stopStatus:(NSNotification *)note
@@ -149,6 +177,8 @@
             //NSLog(@" ### getVideosForToken : <%@>", responseArray);
             
             [CurrentUserSession sharedInstance].videosArray = responseArray;
+            strongSelf.videosArray = responseArray;
+            [strongSelf cacheImages];
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 [strongSelf.tableView reloadData];
@@ -199,8 +229,20 @@
     
     cell.name.text = videoDict[@"title"];
     
-    NSString *imageURL = ((videoDict[@"thumbnails"])[@"high"])[@"url"];
-    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
+    
+    NSString *urlString = ((videoDict[@"thumbnails"])[@"high"])[@"url"];
+    CurrentUserSession *current = [CurrentUserSession sharedInstance];
+    UIImage *image = nil;
+    if ([current isHaveImageForURL:urlString])
+    {
+        image = [current imageForURL:urlString];
+    }
+    else
+    {
+        //image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]]];
+        //[current addImage:image forURL:urlString];
+    }
+    
     cell.image.image = image;
     
     cell.image.layer.cornerRadius = cell.image.frame.size.height / 16;
