@@ -49,27 +49,9 @@
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
-
-    self.stopTimer = [[Timer alloc] init];
-    self.stopTimer.isCheckStatusControl = YES;
-    [self.stopTimer start];
-    
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     [self cacheImages];
-//
-//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
-//                                             initWithBarButtonSystemItem:UIBarButtonSystemIte
-//                                             target:self action:@selector(back)];
-
-    
-    
-//    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-//    // Configure Refresh Control
-//    [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
-//    // Configure View Controller
-//    [self setRefreshControl:refreshControl];
-    
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc]init];
     [refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
@@ -79,58 +61,11 @@
     [self changeBackButton];
 }
 
-- (void)refreshTable
-{
-    [self getVideos];
-}
-
-- (void)changeBackButton
-{
-    
-    UIImage *image = [UIImage imageNamed:@"oval"];
-
-    
-    UIBarButtonItem *barBtnItem =
-    [[UIBarButtonItem alloc]initWithImage:image style:UIBarButtonItemStyleDone target:self action:@selector(back)];
-    
-    //barBtnItem.tintColor = [UIColor whiteColor];
-    
-    
-    UIView *backButtonView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
-    UIButton *back = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
-    [back setImage:image forState:UIControlStateNormal];
-    
-    [back addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-    [backButtonView addSubview:back];
-    UIBarButtonItem *zzz =  [[UIBarButtonItem alloc] initWithCustomView:backButtonView];
-    
-    
-    
-//    self.navigationController.navigationItem.backBarButtonItem = barBtnItem;
-//    self.navigationItem.backBarButtonItem = barBtnItem;
-    
-    
-//    
-//    UIBarButtonItem *newBackButton =
-//    [[UIBarButtonItem alloc] initWithTitle:@"NewTitle"
-//                                     style:UIBarButtonItemStyleBordered
-//                                    target:nil
-//                                    action:@selector(back)];
-//    [[self navigationItem] setBackBarButtonItem:newBackButton];
-    
-    //self.navigationItem.title = @"Видео";
-    
-    //self.navigationItem.rightBarButtonItems = @[];
-    self.navigationItem.leftBarButtonItem = zzz;
-}
-
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-
-    
+    [self initTimer];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -156,6 +91,33 @@
     self.stopTimer = nil;
 }
 
+- (void)initTimer
+{
+    self.stopTimer = [[Timer alloc] init];
+    self.stopTimer.isCheckStatusControl = YES;
+    [self.stopTimer start];
+}
+
+- (void)refreshTable
+{
+    [self getVideos];
+}
+
+- (void)changeBackButton
+{
+    UIImage *image = [UIImage imageNamed:@"oval"];
+    
+    UIView *backButtonView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+    UIButton *back = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+    [back setImage:image forState:UIControlStateNormal];
+    
+    [back addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    [backButtonView addSubview:back];
+    UIBarButtonItem *backButton =  [[UIBarButtonItem alloc] initWithCustomView:backButtonView];
+    
+    self.navigationItem.leftBarButtonItem = backButton;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -167,10 +129,10 @@
     {
         NSString *urlString = ((videoDict[@"thumbnails"])[@"high"])[@"url"];
         CurrentUserSession *current = [CurrentUserSession sharedInstance];
-        //UIImage *image = nil;
+
         if ([current isHaveImageForURL:urlString])
         {
-            //image = [current imageForURL:urlString];
+
         }
         else
         {
@@ -194,7 +156,7 @@
     
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *vc = (UIViewController *)[sb instantiateViewControllerWithIdentifier:@"sleepScreenID"];
-    [self.navigationController presentModalViewController:vc animated:YES];
+    [self.navigationController presentViewController:vc animated:YES completion:^{}];
 }
 
 - (void)startAutoplay
@@ -230,7 +192,7 @@
 - (void)getVideos
 {
     NSString *token = [[CurrentUserSession sharedInstance] token];
-    if (token == nil) NSLog(@" ### !!! TORKEN NULL !!!");
+    if (token == nil) NSLog(@" ### !!! TOKEN NULL !!!");
     
     NSString *listID = self.listDict[@"id"];
     
@@ -282,10 +244,7 @@
 }
 
 - (void)back
-{
-//    [self dismissViewControllerAnimated:YES completion:^{
-//    }];
-    
+{    
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -293,7 +252,6 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //return [self.SignalStimulateMatrix count];
     self.videosArray = [[CurrentUserSession sharedInstance] videosArray];
     
     return [self.videosArray count];
@@ -312,7 +270,6 @@
     
     cell.name.text = videoDict[@"title"];
     
-    
     NSString *urlString = ((videoDict[@"thumbnails"])[@"high"])[@"url"];
     CurrentUserSession *current = [CurrentUserSession sharedInstance];
     UIImage *image = nil;
@@ -322,24 +279,17 @@
     }
     else
     {
-        //image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]]];
-        //[current addImage:image forURL:urlString];
+        
     }
     
     cell.image.image = image;
-    
     cell.image.layer.cornerRadius = cell.image.frame.size.height / 16;
-    
-    //NSString *value = [self.SignalStimulateMatrix objectAtIndex:[indexPath row]];
-    //[cell.textLabel setText:value];
     
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //self.currentWord = [self.SignalStimulateMatrix objectAtIndex:[indexPath row]];
-    
     NSDictionary *videoDict = [self.videosArray objectAtIndex:indexPath.row];
     
     if (kWorkWithBackend)
@@ -362,7 +312,7 @@
 - (void)sendVideoTrackingToBackend:(NSDictionary *)videoDict;
 {
     NSString *token = [[CurrentUserSession sharedInstance] token];
-    if (token == nil) NSLog(@" ### !!! TORKEN NULL !!!");
+    if (token == nil) NSLog(@" ### !!! TOKEN NULL !!!");
     
     [NetworkManager trackingWithToken:token method:@"POST" videoDict:videoDict playTimeIncrement:0 success:^(NSData *data) {} error:^(NSString *localizedDescriptionText) {} cleanup:^{}];
 }

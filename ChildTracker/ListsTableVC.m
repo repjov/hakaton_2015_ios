@@ -10,6 +10,7 @@
 #import "NetworkManager.h"
 #import "CurrentUserSession.h"
 #import "PreviewTableViewCell.h"
+#import "Timer.h"
 
 @interface ListsTableVC () <UITableViewDataSource, UITableViewDelegate>
 
@@ -17,6 +18,7 @@
 @property (strong, nonatomic) NSArray *playListsLoc;
 @property (strong, nonatomic) UIRefreshControl *myPullRefr;
 
+@property (strong, nonatomic) Timer *stopTimer;
 
 @end
 
@@ -32,7 +34,6 @@
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     [self cacheImages];
-    
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc]init];
     [refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
@@ -52,19 +53,33 @@
                                                object:nil];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self initTimer];
+}
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    [self.stopTimer stop];
+    self.stopTimer = nil;
+}
+
+- (void)initTimer
+{
+    self.stopTimer = [[Timer alloc] init];
+    self.stopTimer.isCheckStatusControl = YES;
+    [self.stopTimer start];
 }
 
 - (void)stopStatus:(NSNotification *)note
 {
-    //NSDictionary *theData = [note userInfo];
-    //[self closePlayerButtonPressed:nil];
-    
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *vc = (UIViewController *)[sb instantiateViewControllerWithIdentifier:@"sleepScreenID"];
-    [self.navigationController presentModalViewController:vc animated:YES];
+    [self.navigationController presentViewController:vc animated:YES completion:^{}];
 }
 
 - (void)refreshTable
@@ -84,10 +99,10 @@
     {
         NSString *urlString = listDict[@"thumbnail"];
         CurrentUserSession *current = [CurrentUserSession sharedInstance];
-        //UIImage *image = nil;
+
         if ([current isHaveImageForURL:urlString])
         {
-            //image = [current imageForURL:urlString];
+
         }
         else
         {
@@ -162,7 +177,6 @@
     [CurrentUserSession sharedInstance].playLists = listsArray;
 }
 
-
 #pragma UITableView - delegate methods
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -192,29 +206,20 @@
     }
     else
     {
-        //image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]]];
-        //[current addImage:image forURL:urlString];
     }
     
     cell.image.image = image;
     cell.image.layer.cornerRadius = cell.image.frame.size.height / 16;
     
-    //cell.videosArray = listDict[videosArray];
-    //NSString *value = [self.SignalStimulateMatrix objectAtIndex:[indexPath row]];
-    //[cell.textLabel setText:value];
-    
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    //self.currentWord = [self.SignalStimulateMatrix objectAtIndex:[indexPath row]];
-    
+{    
     [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:YES];
 
     NSDictionary *listDict = [self.playListsLoc objectAtIndex:indexPath.row];
     [CurrentUserSession sharedInstance].playListDict = listDict;
-    //[CurrentUserSession sharedInstance].videosArray = listDict[videosArray];
     
     [self performSegueWithIdentifier: @"segueVideosInListPreview" sender: self];
 }

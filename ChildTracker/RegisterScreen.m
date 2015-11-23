@@ -40,12 +40,6 @@
         forControlEvents:UIControlEventEditingChanged];
     
     self.registerButton.layer.cornerRadius = self.registerButton.frame.size.height / 4;
-    
-//    self.myTimer = [[Timer alloc] init];
-//    [self.myTimer start];
-    
-    ///////[StoreData deleteSavedToken];
-    ////////[StoreData saveToken:@"2e1a4d29-d2f6-4260-8489-bc1fd73df933"];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -70,10 +64,7 @@
 }
 
 - (IBAction)registerButtonPress:(id)sender
-{
-    // mail: egf
-    //    token = "1e9d0c81-b286-45ea-ae06-b09828177eb5";
-    
+{   
     self.errorOutput.text = @"";
     
     NSString *userEmail = self.emailTextField.text;
@@ -130,7 +121,6 @@
 
 - (void)goMailAgreementScreen
 {
-    //[self.navigationController showViewController:<#(nonnull UIViewController *)#> sender:<#(nullable id)#>];
     [self performSegueWithIdentifier: @"segueCodeInput" sender: self];
 }
 
@@ -173,7 +163,6 @@
 
 - (void)goListsScreen
 {
-    //[self.navigationController showViewController:<#(nonnull UIViewController *)#> sender:<#(nullable id)#>];
     [self performSegueWithIdentifier: @"appAlreadyAuthorized" sender: self];
 }
 

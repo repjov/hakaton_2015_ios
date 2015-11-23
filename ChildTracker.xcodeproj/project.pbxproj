@@ -108,13 +108,6 @@
 			name = PreviewCell;
 			sourceTree = "<group>";
 		};
-		D78E5D5D1C00D29C00B24531 /* DataObjects */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = DataObjects;
-			sourceTree = "<group>";
-		};
 		D7DB63581C00677100381E51 = {
 			isa = PBXGroup;
 			children = (
@@ -141,7 +134,6 @@
 				D7DB638D1C00738700381E51 /* Third-party */,
 				D7DB637B1C006D5700381E51 /* youtube-ios-player-helper */,
 				D7DB63891C00725900381E51 /* ViewControllers */,
-				D78E5D5D1C00D29C00B24531 /* DataObjects */,
 				D7DB63941C0073BB00381E51 /* Data */,
 				D7DB636D1C00677100381E51 /* Main.storyboard */,
 				D78E5D5E1C01162300B24531 /* Assets.xcassets */,
@@ -498,6 +490,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ChildTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lodossteam.ChildTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -510,6 +503,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ChildTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lodossteam.ChildTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -11,14 +11,6 @@
 #import <Foundation/Foundation.h>
 #import "NSString+Extensions.h"
 
-//typedef NS_ENUM (NSInteger, MessageTabIndex) {
-//    TextMessageTabIndex = 0,
-//    VidaoPhotosMessageTabIndex,
-//    PhotoMessageTabIndex,
-//    VideoMessageTabIndex,
-//    AudioMessageTabIndex
-//};
-
 @interface Consts : NSObject
 
 #pragma mark - Debug Flags

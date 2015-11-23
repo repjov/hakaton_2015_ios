@@ -21,7 +21,6 @@
 }
 
 + (void)saveToken:(NSString *)token
-//+ (void)saveToFile:(NSMutableArray *)tokenArray
 {
     if (token == nil) return;
     
